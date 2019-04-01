@@ -1,0 +1,14 @@
+{
+  "extends": "airbnb-base",
+
+  "rules": {
+    "no-underscore-dangle": 0,
+    "no-new": 0,
+    "class-methods-use-this": 0
+  },
+
+  "globals": {
+    "window": "readonly",
+    "document": "readonly"
+  }
+}

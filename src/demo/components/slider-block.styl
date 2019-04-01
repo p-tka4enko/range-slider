@@ -1,0 +1,27 @@
+.slider-block
+  display flex
+  margin-bottom 3rem
+
+  @media only screen and (max-width: 640px)
+    flex-direction column
+
+  &__slider-wrapper
+    width 50%
+
+    @media only screen and (max-width: 640px)
+      width 100%
+
+  &__options
+    display table
+    border-spacing 0.5rem 0.1rem
+    margin-left 3rem
+
+    @media only screen and (max-width: 640px)
+      margin 0
+
+  &__option
+    display table-row
+
+  &__option-name, &__min, &__max, &__range, &__from, &__to, &__step, &__vertical,
+  &__display-hint, &__display-tracker, &__display-grid, &__grid-step, &__disabled
+    display table-cell
