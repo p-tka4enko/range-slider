@@ -3,7 +3,7 @@
 
 ## Сборка проекта
 ```console
-$ cd jquery-plugin-project
+$ cd rangeslider
 $ npm i
 $ npm run build
 ```
