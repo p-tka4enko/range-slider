@@ -1,5 +1,5 @@
 # Range Slider
-Простой плагин для jQuery, реализующий слайдер. \
+Плагин для jQuery, реализующий слайдер. \
 [Демо](https://pasha-zolotukhin.github.io/rangeslider/demo/demo.html)
 
 ## Сборка проекта
