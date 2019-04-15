@@ -1,5 +1,28 @@
 html
+  $font-size = 16px
+
   color #000
   background-color #fff
-  font-size 16px
+  font-size $font-size
   font-family Arial, sans-serif
+
+  @media screen and (max-width: 480px)
+    font-size $font-size * 0.8
+
+.main-wrapper
+  min-width 320px
+  max-width 960px
+  margin 0 auto
+
+  &__title, &__slider-block-title
+    text-align center
+
+  &__title
+    font-size 2rem
+
+  &__slider-block-title
+    font-size 1.5rem
+    color gray
+
+  &__slider-block-wrapper:not(:last-child)
+    margin-bottom 3rem

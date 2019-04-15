@@ -9,8 +9,16 @@ html(lang="ru")
     link(rel="shortcut icon" type="image/x-icon" href="./favicon.ico")
     title Демо RangeSlider
   body
-    include components/slider-block
+    include components/slider-block/slider-block
 
-    +slider-block()
-    +slider-block()
-    +slider-block()
+    .main-wrapper
+      h1.main-wrapper__title $(block).rangeslider();
+      .main-wrapper__slider-block-wrapper
+        h2.main-wrapper__slider-block-title Демо 1
+        +slider-block()
+      .main-wrapper__slider-block-wrapper
+        h2.main-wrapper__slider-block-title Демо 2
+        +slider-block()
+      .main-wrapper__slider-block-wrapper
+        h2.main-wrapper__slider-block-title Демо 3
+        +slider-block()

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 import RangeSlider from '../js/rangeslider';
-import './components/slider-block.styl';
+import './components/slider-block/slider-block.styl';
 import './demo.styl';
 import './favicon.ico';
 

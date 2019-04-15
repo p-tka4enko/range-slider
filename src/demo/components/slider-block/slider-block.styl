@@ -1,23 +1,21 @@
 .slider-block
   display flex
-  margin-bottom 3rem
+  justify-content space-between
+  padding 1rem
+  border 0.08rem dashed gray
 
-  @media only screen and (max-width: 640px)
+  @media only screen and (max-width: 720px)
     flex-direction column
 
   &__slider-wrapper
     width 50%
 
-    @media only screen and (max-width: 640px)
+    @media only screen and (max-width: 720px)
       width 100%
 
   &__options
     display table
     border-spacing 0.5rem 0.1rem
-    margin-left 3rem
-
-    @media only screen and (max-width: 640px)
-      margin 0
 
   &__option
     display table-row
