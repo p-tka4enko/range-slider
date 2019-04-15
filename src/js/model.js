@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class Model {
   constructor(...configs) {
     this.handle = { FROM: 1, TO: 2 };
@@ -109,7 +107,7 @@ class Model {
   update(config) {
     const c = this._config;
 
-    $.extend(c, this.validate(config));
+    Object.assign(c, this.validate(config));
     this._call(c.onUpdate);
     this._notifyObservers();
   }
@@ -123,7 +121,7 @@ class Model {
       throw new Error(this._error.CONFIG_SHOULD_BE_OBJECT);
     }
 
-    const validatedConfig = $.extend({}, this._config, config);
+    const validatedConfig = { ...this._config, ...config };
     this._checkConfigTypes(validatedConfig);
     this._alignConfigValues(validatedConfig);
 
@@ -169,11 +167,11 @@ class Model {
     };
 
     configs.forEach((config) => {
-      $.extend(this._config, config);
+      Object.assign(this._config, config);
     });
 
     this._config = this.validate(this._config);
-    this._initialConfig = $.extend({}, this._config);
+    this._initialConfig = { ...this._config };
     this._call(this._config.onInit);
   }
 
