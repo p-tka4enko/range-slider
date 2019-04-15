@@ -1,5 +1,6 @@
 # Range Slider
-Простой плагин для jQuery, реализующий слайдер.
+Простой плагин для jQuery, реализующий слайдер. \
+[Демо](https://pasha-zolotukhin.github.io/rangeslider/demo/demo.html)
 
 ## Сборка проекта
 ```console
@@ -97,67 +98,67 @@ slider.reset();
 Самый независимый слой. Здесь находится вся бизнес-логика приложения. Не производит рассчетов, относящихся к отображению элементов. Представлен в виде класса **Model(...configs: object)**.
 
 У модели есть одно публичное поле:
-- **handle: object**  
+- **handle: object** \
 Объект, имеющий свойства FROM и TO. Определяет левый и правый ползунок соответственно.
 
 И несколько публичных методов:
-- **addObserver(observer: function): boolean**  
+- **addObserver(observer: function): boolean** \
 Добавляет нового подписчика *observer*, который будет слушать модель. Возвращает true, если подписчик был добавлен, иначе - false.
 
-- **getConfig(): object**  
+- **getConfig(): object** \
 Возвращает конфигурацию модели.
 
-- **startSlide(handle: Handle): boolean**  
+- **startSlide(handle: Handle): boolean** \
 Определяет, какой ползунок будет передвигаться при помощи метода slide. Возвращает true, если слайдер готов к движению, иначе - false. При успехе вызывает коллбэк onStart.
 
-- **slide(value: number)**  
+- **slide(value: number)** \
 Передвигает выбранный ползунок на значение *value*. Вызывает коллбэк onSlide (всегда) и onChange (если значение было изменено).
 
-- **finishSlide(): boolean**  
+- **finishSlide(): boolean** \
 Завершает передвижение ползунка. Возвращает true, если до этого был успешно вызван метод startSlide, иначе - false. При успехе вызывает коллбэк onFinish.
 
-- **update(config: object)**  
+- **update(config: object)** \
 Обновляет конфигурацию модели.
 
-- **reset()**  
+- **reset()** \
 Возвращает конфигурацию модели к начальным настройкам.
 
-- **validate(config: object): object**  
+- **validate(config: object): object** \
 Проверяет конфигурацию *config* на ее корректность и возвращает правильную. Если у какого-либо параметра обнаружен неверный тип данных, будет выброшено исключение.
 
-- **getNearestHandle(value: number): Handle**  
+- **getNearestHandle(value: number): Handle** \
 Возвращает ползунок, который находится ближе всего к значению *value*.
 
-- **toString(): string**  
+- **toString(): string** \
 Возвращает модель в виде JSON-строки.
 
 ### Вид
-Слой производит рассчеты, связанные с отображением элементов. В данном случае он представлен в виде нескольких классов:  
-\> **MainView(model: Model, root: DOM Element)** - полоска слайдера и сам слайдер. Основной класс.  
-\> **HandleView(model: Model, root: DOM Element)** - ползунки.  
-\> **HintView(model: Model, handleView: HandleView)** - подсказки со значениями ползунков. Зависит от HandleView.  
-\> **TrackerView(model: Model, root: DOM Element)** - трекер (цветная полоска возле ползунков).  
+Слой производит рассчеты, связанные с отображением элементов. В данном случае он представлен в виде нескольких классов: \
+\> **MainView(model: Model, root: DOM Element)** - полоска слайдера и сам слайдер. Основной класс. \
+\> **HandleView(model: Model, root: DOM Element)** - ползунки. \
+\> **HintView(model: Model, handleView: HandleView)** - подсказки со значениями ползунков. Зависит от HandleView. \
+\> **TrackerView(model: Model, root: DOM Element)** - трекер (цветная полоска возле ползунков). \
 \> **GridView(model: Model, root: DOM Element)** - сетка.
 
 Каждый вид имеет два публичных метода:
-- **update()**  
+- **update()** \
 Обновляет элемент слайдера.
 
-- **toString(): string**  
+- **toString(): string** \
 Возвращает вид в виде JSON-строки.
 
 ### Контроллер
 Слой реагирует на действия пользователя и вызывает нужные методы модели. Представлен в виде класса **Controller(model: Model, views: object, id: number)**.
 
-Объект views, который передается в конструкторе, представляет из себя коллекцию видов, необходимых для работы слайдера. Имеет следующие свойства:  
-\> **mainView: MainView**  
-\> **handleView: HandleView**  
-\> **hintView: HintView**  
-\> **trackerView: TrackerView**  
+Объект views, который передается в конструкторе, представляет из себя коллекцию видов, необходимых для работы слайдера. Имеет следующие свойства: \
+\> **mainView: MainView** \
+\> **handleView: HandleView** \
+\> **hintView: HintView** \
+\> **trackerView: TrackerView** \
 \> **gridView: GridView**
 
 Контроллер имеет только один публичный метод:
-- **toString(): string**  
+- **toString(): string** \
 Возвращает контроллер в виде JSON-строки.
 
 ### Диаграмма классов
@@ -175,6 +176,3 @@ slider.reset();
 <div align="center">
     <img width="491" height="321" src="assets/interaction.png">
 </div>
-
-## Примеры по ссылке
-https://pasha-zolotukhin.github.io/rangeslider/demo/demo.html
