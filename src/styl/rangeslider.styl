@@ -37,6 +37,7 @@ $color-gray = #e5e5e5
     white-space nowrap
     height 1.3rem
     box-sizing border-box
+    bottom calc(100% + 0.25rem)
 
     &_hidden
       visibility hidden
@@ -83,6 +84,9 @@ $color-gray = #e5e5e5
       left -0.5625rem
       margin-left 0
       margin-bottom -0.75rem
+
+    & ^[0]__hint
+      left calc(100% + 0.25rem)
 
     & ^[0]__track-bar
       width 100%

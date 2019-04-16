@@ -62,13 +62,13 @@ class HintView {
     if (c.vertical) {
       this._alignObjBetweenVerticalPoints($leftHint, leftHandleTopSide, leftHandleBottomSide);
       this._alignObjBetweenVerticalPoints($rightHint, rightHandleTopSide, rightHandleBottomSide);
-      $leftHint.offset({ left: leftHandleRightSide + 4 });
-      $rightHint.offset({ left: rightHandleRightSide + 4 });
+      $leftHint.css('left', '');
+      $rightHint.css('left', '');
     } else {
       this._alignObjBetweenHorizontalPoints($leftHint, leftHandleLeftSide, leftHandleRightSide);
       this._alignObjBetweenHorizontalPoints($rightHint, rightHandleLeftSide, rightHandleRightSide);
-      $leftHint.offset({ top: leftHandleTopSide - $leftHint.outerHeight() - 4 });
-      $rightHint.offset({ top: rightHandleTopSide - $rightHint.outerHeight() - 4 });
+      $leftHint.css('top', '');
+      $rightHint.css('top', '');
     }
 
     if (this._isCollision($leftHint, $rightHint)) {
