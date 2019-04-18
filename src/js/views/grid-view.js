@@ -8,9 +8,9 @@ class GridView {
   }
 
   update() {
-    const c = this._model.getConfig();
+    const { displayGrid } = this._model.getConfig();
 
-    if (c.displayGrid) {
+    if (displayGrid) {
       this._displayGrid();
       this._updateGrid();
     } else {
@@ -31,17 +31,22 @@ class GridView {
   }
 
   _updateGrid() {
-    const c = this._model.getConfig();
+    const {
+      min,
+      max,
+      gridStep,
+      vertical,
+    } = this._model.getConfig();
 
     this._$grid.empty();
 
-    for (let i = c.min; i < c.max; i += c.gridStep) {
-      const gridMarkLeftOffsetInPercent = (i - c.min) / (c.max - c.min) * 100;
-      const gridDirection = c.vertical ? 'bottom' : 'left';
+    for (let i = min; i < max; i += gridStep) {
+      const gridMarkLeftOffsetInPercent = (i - min) / (max - min) * 100;
+      const gridDirection = vertical ? 'bottom' : 'left';
       this._addGridMark(i, gridMarkLeftOffsetInPercent, gridDirection);
 
-      if (i + c.gridStep >= c.max) {
-        this._addGridMark(c.max, 100, gridDirection);
+      if (i + gridStep >= max) {
+        this._addGridMark(max, 100, gridDirection);
       }
     }
   }

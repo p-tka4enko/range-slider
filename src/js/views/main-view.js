@@ -12,9 +12,9 @@ class MainView {
   }
 
   update() {
-    const c = this._model.getConfig();
+    const { vertical } = this._model.getConfig();
 
-    if (c.vertical) {
+    if (vertical) {
       this._setToVertical();
     } else {
       this._setToHorizontal();

@@ -10,11 +10,11 @@ class HintView {
   }
 
   update() {
-    const c = this._model.getConfig();
+    const { displayHint, from, to } = this._model.getConfig();
 
-    if (c.displayHint) {
+    if (displayHint) {
       this._displayHints();
-      this._setHintText(c.from, c.to);
+      this._setHintText(from, to);
       this._calculateHintPosition();
     } else {
       this._hideHints();
@@ -57,9 +57,9 @@ class HintView {
     const rightHandleLeftSide = $rightHandle.offset().left;
     const rightHandleRightSide = $rightHandle.offset().left + $rightHandle.outerWidth();
 
-    const c = this._model.getConfig();
+    const { vertical, from, to } = this._model.getConfig();
 
-    if (c.vertical) {
+    if (vertical) {
       this._alignObjBetweenVerticalPoints($leftHint, leftHandleTopSide, leftHandleBottomSide);
       this._alignObjBetweenVerticalPoints($rightHint, rightHandleTopSide, rightHandleBottomSide);
       $leftHint.css('left', '');
@@ -72,9 +72,9 @@ class HintView {
     }
 
     if (this._isCollision($leftHint, $rightHint)) {
-      $leftHint.text(`${c.from} — ${c.to}`);
+      $leftHint.text(`${from} — ${to}`);
       $rightHint.addClass('rangeslider__hint_hidden');
-      if (c.vertical) {
+      if (vertical) {
         this._alignObjBetweenVerticalPoints($leftHint, rightHandleTopSide, leftHandleBottomSide);
       } else {
         this._alignObjBetweenHorizontalPoints($leftHint, leftHandleLeftSide, rightHandleRightSide);

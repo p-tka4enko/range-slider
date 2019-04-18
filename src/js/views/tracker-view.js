@@ -8,9 +8,9 @@ class TrackerView {
   }
 
   update() {
-    const c = this._model.getConfig();
+    const { displayTracker } = this._model.getConfig();
 
-    if (c.displayTracker) {
+    if (displayTracker) {
       this._displayTracker();
       this._calculateTrackerSize();
       this._calculateTrackerPosition();
@@ -32,13 +32,20 @@ class TrackerView {
   }
 
   _calculateTrackerSize() {
-    const c = this._model.getConfig();
+    const {
+      min,
+      max,
+      from,
+      to,
+      range,
+      vertical,
+    } = this._model.getConfig();
 
-    const fromInPercent = c.min !== c.max ? (c.from - c.min) / (c.max - c.min) * 100 : 0;
-    const toInPercent = c.min !== c.max ? (c.to - c.min) / (c.max - c.min) * 100 : 0;
-    const trackerSizeInPercent = c.range ? toInPercent - fromInPercent : fromInPercent;
+    const fromInPercent = min !== max ? (from - min) / (max - min) * 100 : 0;
+    const toInPercent = min !== max ? (to - min) / (max - min) * 100 : 0;
+    const trackerSizeInPercent = range ? toInPercent - fromInPercent : fromInPercent;
 
-    if (c.vertical) {
+    if (vertical) {
       this._$tracker.css('height', `${trackerSizeInPercent}%`).css('width', '');
     } else {
       this._$tracker.css('width', `${trackerSizeInPercent}%`).css('height', '');
@@ -46,12 +53,18 @@ class TrackerView {
   }
 
   _calculateTrackerPosition() {
-    const c = this._model.getConfig();
+    const {
+      min,
+      max,
+      from,
+      range,
+      vertical,
+    } = this._model.getConfig();
 
-    const fromInPercent = (c.from - c.min) / (c.max - c.min) * 100;
-    const trackerOffsetInPercent = c.range ? fromInPercent : 0;
+    const fromInPercent = (from - min) / (max - min) * 100;
+    const trackerOffsetInPercent = range ? fromInPercent : 0;
 
-    if (c.vertical) {
+    if (vertical) {
       this._$tracker.css('bottom', `${trackerOffsetInPercent}%`).css('left', '');
     } else {
       this._$tracker.css('left', `${trackerOffsetInPercent}%`).css('bottom', '');

@@ -40,33 +40,47 @@ class Controller {
   }
 
   _calculateValue(event) {
-    const c = this._model.getConfig();
+    const { vertical, min, max } = this._model.getConfig();
+
     const point = this._getPointCoord(event);
     const sliderSizeInPx = this._getSliderSizeInPx();
-    const k = c.vertical ? 1 - point / (sliderSizeInPx - 1) : point / (sliderSizeInPx - 1);
-    const value = c.min + (c.max - c.min) * k;
+    const k = vertical ? 1 - point / (sliderSizeInPx - 1) : point / (sliderSizeInPx - 1);
+    const value = min + (max - min) * k;
 
     return value;
   }
 
   _getPointCoord(event) {
-    return this._model.getConfig().vertical
-      ? event.pageY - this._views.mainView.getRoot().offset().top
-      : event.pageX - this._views.mainView.getRoot().offset().left;
+    const { vertical } = this._model.getConfig();
+    const { mainView } = this._views;
+
+    const pointCoordX = event.pageX - mainView.getRoot().offset().left;
+    const pointCoordY = event.pageY - mainView.getRoot().offset().top;
+
+    return vertical ? pointCoordY : pointCoordX;
   }
 
   _getSliderSizeInPx() {
-    return this._model.getConfig().vertical
-      ? this._views.mainView.getRoot().height()
-      : this._views.mainView.getRoot().width();
+    const { vertical } = this._model.getConfig();
+    const { mainView } = this._views;
+
+    return vertical ? mainView.getRoot().height() : mainView.getRoot().width();
   }
 
   _updateViews() {
-    this._views.mainView.update();
-    this._views.handleView.update();
-    this._views.hintView.update();
-    this._views.trackerView.update();
-    this._views.gridView.update();
+    const {
+      mainView,
+      handleView,
+      hintView,
+      trackerView,
+      gridView,
+    } = this._views;
+
+    mainView.update();
+    handleView.update();
+    hintView.update();
+    trackerView.update();
+    gridView.update();
   }
 }
 

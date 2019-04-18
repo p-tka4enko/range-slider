@@ -17,9 +17,9 @@ class HandleView {
   }
 
   update() {
-    const c = this._model.getConfig();
+    const { range } = this._model.getConfig();
 
-    if (c.range) {
+    if (range) {
       this._displayRightHandle();
     } else {
       this._hideRightHandle();
@@ -41,12 +41,18 @@ class HandleView {
   }
 
   _calculateHandlePosition() {
-    const c = this._model.getConfig();
+    const {
+      min,
+      max,
+      from,
+      to,
+      vertical,
+    } = this._model.getConfig();
 
-    const fromInPercent = c.min !== c.max ? (c.from - c.min) / (c.max - c.min) * 100 : 0;
-    const toInPercent = c.min !== c.max ? (c.to - c.min) / (c.max - c.min) * 100 : 0;
+    const fromInPercent = min !== max ? (from - min) / (max - min) * 100 : 0;
+    const toInPercent = min !== max ? (to - min) / (max - min) * 100 : 0;
 
-    if (c.vertical) {
+    if (vertical) {
       this._$leftHandle.css('bottom', `${fromInPercent}%`).css('left', '');
       this._$rightHandle.css('bottom', `${toInPercent}%`).css('left', '');
     } else {

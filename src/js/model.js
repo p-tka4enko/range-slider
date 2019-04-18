@@ -87,28 +87,37 @@ class Model {
       return;
     }
 
-    const c = this._config;
-    const { from, to } = c;
+    const config = this._config;
+    const {
+      min,
+      max,
+      from,
+      to,
+      step,
+      range,
+      onChange,
+      onSlide,
+    } = config;
 
     if (this._currentHandle === this.handle.FROM) {
-      c.from = this._alignValue(value, c.min, c.range ? c.to : c.max, c.step);
+      config.from = this._alignValue(value, min, range ? to : max, step);
     } else if (this._currentHandle === this.handle.TO) {
-      c.to = this._alignValue(value, c.from, c.max, c.step);
+      config.to = this._alignValue(value, from, max, step);
     }
 
-    if ((c.from !== from) || (c.to !== to)) {
-      this._call(c.onChange);
+    if ((config.from !== from) || (config.to !== to)) {
+      this._call(onChange);
     }
 
-    this._call(c.onSlide);
+    this._call(onSlide);
     this._notifyObservers();
   }
 
   update(config) {
-    const c = this._config;
+    const { onUpdate } = this._config;
 
-    Object.assign(c, this.validate(config));
-    this._call(c.onUpdate);
+    Object.assign(this._config, this.validate(config));
+    this._call(onUpdate);
     this._notifyObservers();
   }
 
@@ -123,17 +132,16 @@ class Model {
 
     const validatedConfig = { ...this._config, ...config };
     this._checkConfigTypes(validatedConfig);
-    this._alignConfigValues(validatedConfig);
 
-    return validatedConfig;
+    return this._alignConfigValues(validatedConfig);
   }
 
   getNearestHandle(value) {
-    const c = this._config;
+    const { range, from, to } = this._config;
 
-    if (c.range) {
-      const distanceToFrom = Math.abs(c.from - value - 1);
-      const distanceToTo = Math.abs(c.to - value + 1);
+    if (range) {
+      const distanceToFrom = Math.abs(from - value - 1);
+      const distanceToTo = Math.abs(to - value + 1);
       return distanceToFrom > distanceToTo ? this.handle.TO : this.handle.FROM;
     }
 
@@ -262,22 +270,37 @@ class Model {
   }
 
   _alignConfigValues(config) {
-    const c = config;
+    let {
+      min,
+      max,
+      step,
+      from,
+      to,
+    } = config;
 
-    c.min = +c.min.toFixed(4);
-    c.max = +c.max.toFixed(4);
-    c.step = +c.step.toFixed(4);
+    min = +min.toFixed(4);
+    max = +max.toFixed(4);
+    step = +step.toFixed(4);
 
-    if (c.max < c.min) {
-      c.max = c.min;
+    if (max < min) {
+      max = min;
     }
 
-    c.from = this._alignValue(c.from, c.min, c.max, c.step);
-    c.to = this._alignValue(c.to, c.from, c.max, c.step);
+    from = this._alignValue(from, min, max, step);
+    to = this._alignValue(to, from, max, step);
 
-    if (c.from > c.to) {
-      c.from = c.to;
+    if (from > to) {
+      from = to;
     }
+
+    return {
+      ...config,
+      min,
+      max,
+      step,
+      from,
+      to,
+    };
   }
 
   _alignValue(value, min, max, step) {
