@@ -100,9 +100,9 @@ class Model {
     } = config;
 
     if (this._currentHandle === this.handle.FROM) {
-      config.from = this._alignValue(value, min, range ? to : max, step);
+      config.from = this._getAlignedValue(value, min, range ? to : max, step);
     } else if (this._currentHandle === this.handle.TO) {
-      config.to = this._alignValue(value, from, max, step);
+      config.to = this._getAlignedValue(value, from, max, step);
     }
 
     if ((config.from !== from) || (config.to !== to)) {
@@ -133,7 +133,7 @@ class Model {
     const validatedConfig = { ...this._config, ...config };
     this._checkConfigTypes(validatedConfig);
 
-    return this._alignConfigValues(validatedConfig);
+    return this._getAlignedConfig(validatedConfig);
   }
 
   getNearestHandle(value) {
@@ -269,7 +269,7 @@ class Model {
     }
   }
 
-  _alignConfigValues(config) {
+  _getAlignedConfig(config) {
     let {
       min,
       max,
@@ -286,8 +286,8 @@ class Model {
       max = min;
     }
 
-    from = this._alignValue(from, min, max, step);
-    to = this._alignValue(to, from, max, step);
+    from = this._getAlignedValue(from, min, max, step);
+    to = this._getAlignedValue(to, from, max, step);
 
     if (from > to) {
       from = to;
@@ -303,7 +303,7 @@ class Model {
     };
   }
 
-  _alignValue(value, min, max, step) {
+  _getAlignedValue(value, min, max, step) {
     let alignedValue = value;
     const sliderSize = max - min;
 
