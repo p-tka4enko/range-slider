@@ -23,20 +23,20 @@ const $displayGrid1 = $sliderBlock1.find('.slider-block__display-grid');
 const $gridStep1 = $sliderBlock1.find('.slider-block__grid-step');
 const $disabled1 = $sliderBlock1.find('.slider-block__disabled');
 
-const rangeslider1 = $slider1.rangeslider({
+const rangeSlider1 = $slider1.rangeSlider({
   onInit: (c) => {
-    $min1.val(c.min).change(() => rangeslider1.update({ min: +$min1.val() }));
-    $max1.val(c.max).change(() => rangeslider1.update({ max: +$max1.val() }));
-    $range1.prop('checked', c.range).change(() => rangeslider1.update({ range: $range1.is(':checked') }));
-    $from1.val(c.from).change(() => rangeslider1.update({ from: +$from1.val() }));
-    $to1.val(c.to).change(() => rangeslider1.update({ to: +$to1.val() }));
-    $step1.val(c.step).change(() => rangeslider1.update({ step: +$step1.val() }));
-    $vertical1.prop('checked', c.vertical).change(() => rangeslider1.update({ vertical: $vertical1.is(':checked') }));
-    $displayHint1.prop('checked', c.displayHint).change(() => rangeslider1.update({ displayHint: $displayHint1.is(':checked') }));
-    $displayTracker1.prop('checked', c.displayTracker).change(() => rangeslider1.update({ displayTracker: $displayTracker1.is(':checked') }));
-    $displayGrid1.prop('checked', c.displayGrid).change(() => rangeslider1.update({ displayGrid: $displayGrid1.is(':checked') }));
-    $gridStep1.val(c.gridStep).change(() => rangeslider1.update({ gridStep: +$gridStep1.val() }));
-    $disabled1.prop('checked', c.disabled).change(() => rangeslider1.update({ disabled: $disabled1.is(':checked') }));
+    $min1.val(c.min).change(() => rangeSlider1.update({ min: +$min1.val() }));
+    $max1.val(c.max).change(() => rangeSlider1.update({ max: +$max1.val() }));
+    $range1.prop('checked', c.range).change(() => rangeSlider1.update({ range: $range1.is(':checked') }));
+    $from1.val(c.from).change(() => rangeSlider1.update({ from: +$from1.val() }));
+    $to1.val(c.to).change(() => rangeSlider1.update({ to: +$to1.val() }));
+    $step1.val(c.step).change(() => rangeSlider1.update({ step: +$step1.val() }));
+    $vertical1.prop('checked', c.vertical).change(() => rangeSlider1.update({ vertical: $vertical1.is(':checked') }));
+    $displayHint1.prop('checked', c.displayHint).change(() => rangeSlider1.update({ displayHint: $displayHint1.is(':checked') }));
+    $displayTracker1.prop('checked', c.displayTracker).change(() => rangeSlider1.update({ displayTracker: $displayTracker1.is(':checked') }));
+    $displayGrid1.prop('checked', c.displayGrid).change(() => rangeSlider1.update({ displayGrid: $displayGrid1.is(':checked') }));
+    $gridStep1.val(c.gridStep).change(() => rangeSlider1.update({ gridStep: +$gridStep1.val() }));
+    $disabled1.prop('checked', c.disabled).change(() => rangeSlider1.update({ disabled: $disabled1.is(':checked') }));
   },
   onUpdate: (c) => {
     $min1.val(c.min);
@@ -74,23 +74,23 @@ const $displayGrid2 = $sliderBlock2.find('.slider-block__display-grid');
 const $gridStep2 = $sliderBlock2.find('.slider-block__grid-step');
 const $disabled2 = $sliderBlock2.find('.slider-block__disabled');
 
-const rangeslider2 = $slider2.rangeslider({
+const rangeSlider2 = $slider2.rangeSlider({
   range: true,
   displayHint: true,
   displayTracker: true,
   onInit: (c) => {
-    $min2.val(c.min).change(() => rangeslider2.update({ min: +$min2.val() }));
-    $max2.val(c.max).change(() => rangeslider2.update({ max: +$max2.val() }));
-    $range2.prop('checked', c.range).change(() => rangeslider2.update({ range: $range2.is(':checked') }));
-    $from2.val(c.from).change(() => rangeslider2.update({ from: +$from2.val() }));
-    $to2.val(c.to).change(() => rangeslider2.update({ to: +$to2.val() }));
-    $step2.val(c.step).change(() => rangeslider2.update({ step: +$step2.val() }));
-    $vertical2.prop('checked', c.vertical).change(() => rangeslider2.update({ vertical: $vertical2.is(':checked') }));
-    $displayHint2.prop('checked', c.displayHint).change(() => rangeslider2.update({ displayHint: $displayHint2.is(':checked') }));
-    $displayTracker2.prop('checked', c.displayTracker).change(() => rangeslider2.update({ displayTracker: $displayTracker2.is(':checked') }));
-    $displayGrid2.prop('checked', c.displayGrid).change(() => rangeslider2.update({ displayGrid: $displayGrid2.is(':checked') }));
-    $gridStep2.val(c.gridStep).change(() => rangeslider2.update({ gridStep: +$gridStep2.val() }));
-    $disabled2.prop('checked', c.disabled).change(() => rangeslider2.update({ disabled: $disabled2.is(':checked') }));
+    $min2.val(c.min).change(() => rangeSlider2.update({ min: +$min2.val() }));
+    $max2.val(c.max).change(() => rangeSlider2.update({ max: +$max2.val() }));
+    $range2.prop('checked', c.range).change(() => rangeSlider2.update({ range: $range2.is(':checked') }));
+    $from2.val(c.from).change(() => rangeSlider2.update({ from: +$from2.val() }));
+    $to2.val(c.to).change(() => rangeSlider2.update({ to: +$to2.val() }));
+    $step2.val(c.step).change(() => rangeSlider2.update({ step: +$step2.val() }));
+    $vertical2.prop('checked', c.vertical).change(() => rangeSlider2.update({ vertical: $vertical2.is(':checked') }));
+    $displayHint2.prop('checked', c.displayHint).change(() => rangeSlider2.update({ displayHint: $displayHint2.is(':checked') }));
+    $displayTracker2.prop('checked', c.displayTracker).change(() => rangeSlider2.update({ displayTracker: $displayTracker2.is(':checked') }));
+    $displayGrid2.prop('checked', c.displayGrid).change(() => rangeSlider2.update({ displayGrid: $displayGrid2.is(':checked') }));
+    $gridStep2.val(c.gridStep).change(() => rangeSlider2.update({ gridStep: +$gridStep2.val() }));
+    $disabled2.prop('checked', c.disabled).change(() => rangeSlider2.update({ disabled: $disabled2.is(':checked') }));
   },
   onUpdate: (c) => {
     $min2.val(c.min);
@@ -128,25 +128,25 @@ const $displayGrid3 = $sliderBlock3.find('.slider-block__display-grid');
 const $gridStep3 = $sliderBlock3.find('.slider-block__grid-step');
 const $disabled3 = $sliderBlock3.find('.slider-block__disabled');
 
-const rangeslider3 = $slider3.rangeslider({
+const rangeSlider3 = $slider3.rangeSlider({
   min: 1,
   max: 10,
   from: 7,
   displayHint: true,
   displayTracker: true,
   onInit: (c) => {
-    $min3.val(c.min).change(() => rangeslider3.update({ min: +$min3.val() }));
-    $max3.val(c.max).change(() => rangeslider3.update({ max: +$max3.val() }));
-    $range3.prop('checked', c.range).change(() => rangeslider3.update({ range: $range3.is(':checked') }));
-    $from3.val(c.from).change(() => rangeslider3.update({ from: +$from3.val() }));
-    $to3.val(c.to).change(() => rangeslider3.update({ to: +$to3.val() }));
-    $step3.val(c.step).change(() => rangeslider3.update({ step: +$step3.val() }));
-    $vertical3.prop('checked', c.vertical).change(() => rangeslider3.update({ vertical: $vertical3.is(':checked') }));
-    $displayHint3.prop('checked', c.displayHint).change(() => rangeslider3.update({ displayHint: $displayHint3.is(':checked') }));
-    $displayTracker3.prop('checked', c.displayTracker).change(() => rangeslider3.update({ displayTracker: $displayTracker3.is(':checked') }));
-    $displayGrid3.prop('checked', c.displayGrid).change(() => rangeslider3.update({ displayGrid: $displayGrid3.is(':checked') }));
-    $gridStep3.val(c.gridStep).change(() => rangeslider3.update({ gridStep: +$gridStep3.val() }));
-    $disabled3.prop('checked', c.disabled).change(() => rangeslider3.update({ disabled: $disabled3.is(':checked') }));
+    $min3.val(c.min).change(() => rangeSlider3.update({ min: +$min3.val() }));
+    $max3.val(c.max).change(() => rangeSlider3.update({ max: +$max3.val() }));
+    $range3.prop('checked', c.range).change(() => rangeSlider3.update({ range: $range3.is(':checked') }));
+    $from3.val(c.from).change(() => rangeSlider3.update({ from: +$from3.val() }));
+    $to3.val(c.to).change(() => rangeSlider3.update({ to: +$to3.val() }));
+    $step3.val(c.step).change(() => rangeSlider3.update({ step: +$step3.val() }));
+    $vertical3.prop('checked', c.vertical).change(() => rangeSlider3.update({ vertical: $vertical3.is(':checked') }));
+    $displayHint3.prop('checked', c.displayHint).change(() => rangeSlider3.update({ displayHint: $displayHint3.is(':checked') }));
+    $displayTracker3.prop('checked', c.displayTracker).change(() => rangeSlider3.update({ displayTracker: $displayTracker3.is(':checked') }));
+    $displayGrid3.prop('checked', c.displayGrid).change(() => rangeSlider3.update({ displayGrid: $displayGrid3.is(':checked') }));
+    $gridStep3.val(c.gridStep).change(() => rangeSlider3.update({ gridStep: +$gridStep3.val() }));
+    $disabled3.prop('checked', c.disabled).change(() => rangeSlider3.update({ disabled: $disabled3.is(':checked') }));
   },
   onUpdate: (c) => {
     $min3.val(c.min);

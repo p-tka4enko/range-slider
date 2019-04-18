@@ -33,7 +33,7 @@ class RangeSlider {
   static init(jquery) {
     const $ = jquery;
 
-    $.fn.rangeslider = function rangeslider(config) {
+    $.fn.rangeSlider = function rangeSlider(config) {
       return this.each(function createRangeSlider(controllerId) {
         if (!$(this).data('rangeslider')) {
           const htmlConfig = $(this).data();

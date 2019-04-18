@@ -26,7 +26,7 @@ const $ = require('jquery');
 const RangeSlider = require('rangeslider');
 
 RangeSlider.init($);
-$('.slider').rangeslider();
+$('.slider').rangeSlider();
 ```
 
 ## API
@@ -67,7 +67,7 @@ const RangeSlider = require('rangeslider');
 RangeSlider.init($);
 
 // 2. Инициализируем объект слайдера
-$('.slider').rangeslider();
+$('.slider').rangeSlider();
 
 // 3. Сохраняем объект в переменную
 const slider = $('.slider').data('rangeslider');
