@@ -71,7 +71,7 @@ class HintView {
       $rightHint.css('top', '');
     }
 
-    if (this._isCollision($leftHint, $rightHint)) {
+    if (this._checkCollisionOfHints()) {
       $leftHint.text(`${from} — ${to}`);
       $rightHint.addClass('range-slider__hint_hidden');
       if (vertical) {
@@ -106,39 +106,46 @@ class HintView {
     return top < 0 ? 0 : top;
   }
 
-  _isCollision($obj1, $obj2) {
-    if ($obj1.css('visibility') === 'hidden' || $obj2.css('visibility') === 'hidden') {
+  _checkCollisionOfHints() {
+    const $leftHint = this._$leftHint;
+    const $rightHint = this._$rightHint;
+
+    if ($leftHint.css('visibility') === 'hidden' || $rightHint.css('visibility') === 'hidden') {
       return false;
     }
 
-    const projectionX1 = {
-      left: $obj1.offset().left,
-      right: $obj1.offset().left + $obj1.outerWidth(),
+    const leftHintProjectionX = {
+      left: $leftHint.offset().left,
+      right: $leftHint.offset().left + $leftHint.outerWidth(),
     };
 
-    const projectionX2 = {
-      left: $obj2.offset().left,
-      right: $obj2.offset().left + $obj2.outerWidth(),
+    const rightHintProjectionX = {
+      left: $rightHint.offset().left,
+      right: $rightHint.offset().left + $rightHint.outerWidth(),
     };
 
     const isCollisionX = !(
-      (projectionX1.left <= projectionX2.left && projectionX1.right <= projectionX2.left)
-      || (projectionX1.left >= projectionX2.right && projectionX1.right >= projectionX2.right)
+      (leftHintProjectionX.left <= rightHintProjectionX.left
+      && leftHintProjectionX.right <= rightHintProjectionX.left)
+      || (leftHintProjectionX.left >= rightHintProjectionX.right
+      && leftHintProjectionX.right >= rightHintProjectionX.right)
     );
 
-    const projectionY1 = {
-      top: $obj1.offset().top,
-      bottom: $obj1.offset().top + $obj1.outerHeight(),
+    const leftHintProjectionY = {
+      top: $leftHint.offset().top,
+      bottom: $leftHint.offset().top + $leftHint.outerHeight(),
     };
 
-    const projectionY2 = {
-      top: $obj2.offset().top,
-      bottom: $obj2.offset().top + $obj2.outerHeight(),
+    const rightHintProjectionY = {
+      top: $rightHint.offset().top,
+      bottom: $rightHint.offset().top + $rightHint.outerHeight(),
     };
 
     const isCollisionY = !(
-      (projectionY1.top <= projectionY2.top && projectionY1.bottom <= projectionY2.top)
-      || (projectionY1.top >= projectionY2.bottom && projectionY1.bottom >= projectionY2.bottom)
+      (leftHintProjectionY.top <= rightHintProjectionY.top
+      && leftHintProjectionY.bottom <= rightHintProjectionY.top)
+      || (leftHintProjectionY.top >= rightHintProjectionY.bottom
+      && leftHintProjectionY.bottom >= rightHintProjectionY.bottom)
     );
 
     return isCollisionX && isCollisionY;
