@@ -3,7 +3,7 @@ import $ from 'jquery';
 class MainView {
   constructor(model, root) {
     this._model = model;
-    this._$root = $(root).addClass('rangeslider');
+    this._$root = $(root).addClass('range-slider');
     this._model.addObserver(this.update.bind(this));
   }
 
@@ -26,11 +26,11 @@ class MainView {
   }
 
   _setToVertical() {
-    this._$root.addClass('rangeslider_vertical');
+    this._$root.addClass('range-slider_vertical');
   }
 
   _setToHorizontal() {
-    this._$root.removeClass('rangeslider_vertical');
+    this._$root.removeClass('range-slider_vertical');
   }
 }
 

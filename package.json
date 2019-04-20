@@ -1,7 +1,7 @@
 {
   "author": "Pasha Tkachenko",
   "bugs": {
-    "url": "https://github.com/pasha-zolotukhin/rangeslider/issues"
+    "url": "https://github.com/pasha-zolotukhin/range-slider/issues"
   },
   "dependencies": {
     "copy-webpack-plugin": "^5.0.2",
@@ -28,11 +28,11 @@
     "karma-mocha-reporter": "^2.2.5",
     "karma-webpack": "^3.0.5"
   },
-  "main": "dist/js/rangeslider.js",
-  "name": "rangeslider",
+  "main": "dist/js/range-slider.js",
+  "name": "range-slider",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pasha-zolotukhin/rangeslider.git"
+    "url": "https://github.com/pasha-zolotukhin/range-slider.git"
   },
   "scripts": {
     "build": "webpack",

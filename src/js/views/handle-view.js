@@ -3,8 +3,8 @@ import $ from 'jquery';
 class HandleView {
   constructor(model, root) {
     this._model = model;
-    this._$leftHandle = $('<div>').appendTo(root).addClass('rangeslider__handle');
-    this._$rightHandle = $('<div>').appendTo(root).addClass('rangeslider__handle');
+    this._$leftHandle = $('<div>').appendTo(root).addClass('range-slider__handle');
+    this._$rightHandle = $('<div>').appendTo(root).addClass('range-slider__handle');
     this._model.addObserver(this.update.bind(this));
   }
 
@@ -33,11 +33,11 @@ class HandleView {
   }
 
   _displayRightHandle() {
-    this._$rightHandle.removeClass('rangeslider__handle_hidden');
+    this._$rightHandle.removeClass('range-slider__handle_hidden');
   }
 
   _hideRightHandle() {
-    this._$rightHandle.addClass('rangeslider__handle_hidden');
+    this._$rightHandle.addClass('range-slider__handle_hidden');
   }
 
   _calculateHandlePosition() {

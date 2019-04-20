@@ -1,4 +1,4 @@
-import RangeSlider from '../js/rangeslider';
+import RangeSlider from '../js/range-slider';
 
 describe('RangeSlider', () => {
 
@@ -18,9 +18,9 @@ describe('RangeSlider', () => {
       let slide = spyOn(fakeModel, 'slide');
       let startSlide = spyOn(fakeModel, 'startSlide');
       let finishSlide = spyOn(fakeModel, 'finishSlide');
-      let rangeslider = new RangeSlider(fakeModel);
+      let rangeSlider = new RangeSlider(fakeModel);
 
-      rangeslider.slide('from', 0);
+      rangeSlider.slide('from', 0);
       expect(slide).toHaveBeenCalledTimes(1);
       expect(startSlide).toHaveBeenCalledTimes(1);
       expect(finishSlide).toHaveBeenCalledTimes(1);
@@ -31,7 +31,7 @@ describe('RangeSlider', () => {
       startSlide.calls.reset();
       finishSlide.calls.reset();
 
-      rangeslider.slide('to', 1);
+      rangeSlider.slide('to', 1);
       expect(slide).toHaveBeenCalledTimes(1);
       expect(startSlide).toHaveBeenCalledTimes(1);
       expect(finishSlide).toHaveBeenCalledTimes(1);
@@ -44,15 +44,15 @@ describe('RangeSlider', () => {
     it('должен один раз вызвать из модели метод update', () => {
       let fakeModel = {update: function() {}};
       let update = spyOn(fakeModel, 'update');
-      let rangeslider = new RangeSlider(fakeModel);
+      let rangeSlider = new RangeSlider(fakeModel);
 
-      rangeslider.update({});
+      rangeSlider.update({});
       expect(update).toHaveBeenCalledTimes(1);
       expect(update).toHaveBeenCalledWith({});
 
       update.calls.reset();
 
-      rangeslider.update({a: 1});
+      rangeSlider.update({a: 1});
       expect(update).toHaveBeenCalledTimes(1);
       expect(update).toHaveBeenCalledWith({a: 1});
     })
@@ -62,8 +62,8 @@ describe('RangeSlider', () => {
     it('должен один раз вызвать из модели метод reset', () => {
       let fakeModel = {reset: function() {}};
       let reset = spyOn(fakeModel, 'reset');
-      let rangeslider = new RangeSlider(fakeModel);
-      rangeslider.reset();
+      let rangeSlider = new RangeSlider(fakeModel);
+      rangeSlider.reset();
       expect(reset).toHaveBeenCalledTimes(1);
     })
   })

@@ -1,10 +1,10 @@
 # Range Slider
 Плагин для jQuery, реализующий слайдер. \
-[Демо](https://pasha-zolotukhin.github.io/rangeslider/demo/demo.html)
+[Демо](https://pasha-zolotukhin.github.io/range-slider/demo/demo.html)
 
 ## Сборка проекта
 ```console
-$ cd rangeslider
+$ cd range-slider
 $ npm i
 $ npm run build
 ```
@@ -23,7 +23,7 @@ $ npm run lint
 Для использования плагина вызовите его метод **init**, передав в качестве параметра объект jQuery. Пример:
 ```js
 const $ = require('jquery');
-const RangeSlider = require('rangeslider');
+const RangeSlider = require('range-slider');
 
 RangeSlider.init($);
 $('.slider').rangeSlider();
@@ -61,7 +61,7 @@ $('.slider').rangeSlider();
 ### Публичные методы
 ```js
 const $ = require('jquery');
-const RangeSlider = require('rangeslider');
+const RangeSlider = require('range-slider');
 
 // 1. Подготавливаем jQuery
 RangeSlider.init($);
@@ -70,7 +70,7 @@ RangeSlider.init($);
 $('.slider').rangeSlider();
 
 // 3. Сохраняем объект в переменную
-const slider = $('.slider').data('rangeslider');
+const slider = $('.slider').data('range-slider');
 
 // 4. Изменяем конфигурацию слайдера
 slider.update({

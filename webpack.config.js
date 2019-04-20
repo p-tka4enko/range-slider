@@ -5,10 +5,10 @@ const Stylus = require('stylus');
 
 const pluginConfig = {
   mode: 'production',
-  entry: './src/js/rangeslider.js',
+  entry: './src/js/range-slider.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/rangeslider.js',
+    filename: 'js/range-slider.js',
     library: 'RangeSlider',
     libraryTarget: 'commonjs2'
   },

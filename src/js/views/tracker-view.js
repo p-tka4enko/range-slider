@@ -3,7 +3,7 @@ import $ from 'jquery';
 class TrackerView {
   constructor(model, root) {
     this._model = model;
-    this._$tracker = $('<div>').appendTo(root).addClass('rangeslider__tracker');
+    this._$tracker = $('<div>').appendTo(root).addClass('range-slider__tracker');
     this._model.addObserver(this.update.bind(this));
   }
 
@@ -24,11 +24,11 @@ class TrackerView {
   }
 
   _displayTracker() {
-    this._$tracker.removeClass('rangeslider__tracker_hidden');
+    this._$tracker.removeClass('range-slider__tracker_hidden');
   }
 
   _hideTracker() {
-    this._$tracker.addClass('rangeslider__tracker_hidden');
+    this._$tracker.addClass('range-slider__tracker_hidden');
   }
 
   _calculateTrackerSize() {

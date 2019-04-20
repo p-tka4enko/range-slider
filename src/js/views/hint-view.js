@@ -4,8 +4,8 @@ class HintView {
   constructor(model, handleView) {
     this._model = model;
     this._handleView = handleView;
-    this._$leftHint = $('<div>').appendTo(handleView.getLeftHandle()).addClass('rangeslider__hint');
-    this._$rightHint = $('<div>').appendTo(handleView.getRightHandle()).addClass('rangeslider__hint');
+    this._$leftHint = $('<div>').appendTo(handleView.getLeftHandle()).addClass('range-slider__hint');
+    this._$rightHint = $('<div>').appendTo(handleView.getRightHandle()).addClass('range-slider__hint');
     this._model.addObserver(this.update.bind(this));
   }
 
@@ -26,13 +26,13 @@ class HintView {
   }
 
   _displayHints() {
-    this._$leftHint.removeClass('rangeslider__hint_hidden');
-    this._$rightHint.removeClass('rangeslider__hint_hidden');
+    this._$leftHint.removeClass('range-slider__hint_hidden');
+    this._$rightHint.removeClass('range-slider__hint_hidden');
   }
 
   _hideHints() {
-    this._$leftHint.addClass('rangeslider__hint_hidden');
-    this._$rightHint.addClass('rangeslider__hint_hidden');
+    this._$leftHint.addClass('range-slider__hint_hidden');
+    this._$rightHint.addClass('range-slider__hint_hidden');
   }
 
   _setHintText(leftHintText, rightHintText) {
@@ -73,7 +73,7 @@ class HintView {
 
     if (this._isCollision($leftHint, $rightHint)) {
       $leftHint.text(`${from} — ${to}`);
-      $rightHint.addClass('rangeslider__hint_hidden');
+      $rightHint.addClass('range-slider__hint_hidden');
       if (vertical) {
         this._alignObjBetweenVerticalPoints($leftHint, rightHandleTopSide, leftHandleBottomSide);
       } else {

@@ -35,7 +35,7 @@ class RangeSlider {
 
     $.fn.rangeSlider = function rangeSlider(config) {
       return this.each(function createRangeSlider(controllerId) {
-        if (!$(this).data('rangeslider')) {
+        if (!$(this).data('range-slider')) {
           const htmlConfig = $(this).data();
           const model = new Model(config, htmlConfig);
 
@@ -53,7 +53,7 @@ class RangeSlider {
             gridView,
           }, controllerId);
 
-          $(this).data('rangeslider', new RangeSlider(model));
+          $(this).data('range-slider', new RangeSlider(model));
         }
       });
     };

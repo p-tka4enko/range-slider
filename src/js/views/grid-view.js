@@ -3,7 +3,7 @@ import $ from 'jquery';
 class GridView {
   constructor(model, root) {
     this._model = model;
-    this._$grid = $('<div>').appendTo(root).addClass('rangeslider__grid');
+    this._$grid = $('<div>').appendTo(root).addClass('range-slider__grid');
     this._model.addObserver(this.update.bind(this));
   }
 
@@ -23,11 +23,11 @@ class GridView {
   }
 
   _displayGrid() {
-    this._$grid.removeClass('rangeslider__grid_hidden');
+    this._$grid.removeClass('range-slider__grid_hidden');
   }
 
   _hideGrid() {
-    this._$grid.addClass('rangeslider__grid_hidden');
+    this._$grid.addClass('range-slider__grid_hidden');
   }
 
   _updateGrid() {
@@ -54,7 +54,7 @@ class GridView {
   _addGridMark(value, offset, direction) {
     $('<div>')
       .appendTo(this._$grid)
-      .addClass('rangeslider__grid-mark')
+      .addClass('range-slider__grid-mark')
       .text(value)
       .css(direction, `${offset}%`);
   }

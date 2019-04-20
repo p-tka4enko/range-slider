@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-import RangeSlider from '../js/rangeslider';
+import RangeSlider from '../js/range-slider';
 import './components/slider-block/slider-block.styl';
 import './demo.styl';
 import './favicon.ico';
@@ -56,7 +56,7 @@ const rangeSlider1 = $slider1.rangeSlider({
     $from1.val(c.from);
     $to1.val(c.to);
   }
-}).data('rangeslider');
+}).data('range-slider');
 
 // Slider 2
 const $sliderBlock2 = $('.slider-block').eq(1);
@@ -110,7 +110,7 @@ const rangeSlider2 = $slider2.rangeSlider({
     $from2.val(c.from);
     $to2.val(c.to);
   }
-}).data('rangeslider');
+}).data('range-slider');
 
 // Slider 3
 const $sliderBlock3 = $('.slider-block').eq(2);
@@ -166,4 +166,4 @@ const rangeSlider3 = $slider3.rangeSlider({
     $from3.val(c.from);
     $to3.val(c.to);
   }
-}).data('rangeslider');
+}).data('range-slider');
