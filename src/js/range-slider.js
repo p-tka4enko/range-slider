@@ -1,3 +1,4 @@
+import Config from './config';
 import Model from './model';
 import Controller from './controller';
 import MainView from './views/main-view';
@@ -37,7 +38,7 @@ class RangeSlider {
       return this.each(function createRangeSlider(controllerId) {
         if (!$(this).data('range-slider')) {
           const htmlConfig = $(this).data();
-          const model = new Model(config, htmlConfig);
+          const model = new Model(new Config(config, htmlConfig));
 
           const mainView = new MainView(model, this);
           const handleView = new HandleView(model, this);
