@@ -53,12 +53,8 @@ class Model {
 
     const config = this._config.getConfig();
     const {
-      min,
-      max,
       from,
       to,
-      step,
-      range,
       onChange,
       onSlide,
     } = config;
@@ -102,7 +98,7 @@ class Model {
   }
 
   toString() {
-    return JSON.stringify({ class: 'Model', config: this._config });
+    return `{"class": "Model", "config": ${this._config}}`;
   }
 
   _notifyObservers() {
@@ -113,7 +109,7 @@ class Model {
 
   _call(func) {
     if (typeof func === 'function') {
-      func(this._config.getConfig());
+      func(this.getConfig());
     }
   }
 }

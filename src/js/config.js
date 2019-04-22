@@ -35,7 +35,13 @@ class Config {
   }
 
   updateFrom(value) {
-    const { min, max, range, to, step } = this._config;
+    const {
+      min,
+      max,
+      range,
+      to,
+      step,
+    } = this._config;
     this._config.from = this._getAlignedValue(value, min, range ? to : max, step);
   }
 
