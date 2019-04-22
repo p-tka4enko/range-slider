@@ -10,21 +10,21 @@ const pluginConfig = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/range-slider.js',
     library: 'RangeSlider',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
   },
   plugins: [
     new CopyWebpackPlugin([
       {
         from: 'src/styl',
         to: 'css/[name].css',
-        transform(content, path) {
+        transform(content) {
           let css;
           Stylus(content.toString()).render((err, result) => { css = result; });
           return css;
-        }
-      }
-    ])
-  ]
+        },
+      },
+    ]),
+  ],
 };
 
 const demoConfig = {
@@ -32,36 +32,36 @@ const demoConfig = {
   entry: './src/demo/demo.js',
   output: {
     path: path.resolve(__dirname, 'dist/demo'),
-    filename: 'demo.js'
+    filename: 'demo.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'demo.html',
-      template: './src/demo/demo.pug'
-    })
+      template: './src/demo/demo.pug',
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.pug$/,
         exclude: /(node_modules|.git)/,
-        loader: 'pug-loader'
+        loader: 'pug-loader',
       },
       {
         test: /\.styl$/,
         exclude: /(node_modules|.git)/,
-        use: ['style-loader', 'css-loader', 'stylus-loader']
+        use: ['style-loader', 'css-loader', 'stylus-loader'],
       },
       {
         test: /favicon.ico$/,
         exclude: /(node_modules|.git)/,
         loader: 'file-loader',
         options: {
-          name: 'favicon.ico'
-        }
-      }
-    ]
-  }
+          name: 'favicon.ico',
+        },
+      },
+    ],
+  },
 };
 
 module.exports = [pluginConfig, demoConfig];

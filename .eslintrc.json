@@ -9,6 +9,11 @@
 
   "globals": {
     "window": "readonly",
-    "document": "readonly"
+    "document": "readonly",
+    "describe": "readonly",
+    "it": "readonly",
+    "expect": "readonly",
+    "spyOn": "readonly",
+    "jasmine": "readonly"
   }
 }

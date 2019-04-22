@@ -1,24 +1,23 @@
 import RangeSlider from '../js/range-slider';
 
 describe('RangeSlider', () => {
-
   describe('constructor', () => {
     it('должен быть функцией', () => {
       expect(typeof RangeSlider).toEqual('function');
-    })
-  })
+    });
+  });
 
   describe('slide', () => {
     it('должен один раз вызвать из модели методы startSlide, slide и finishSlide', () => {
-      let fakeModel = {
-        slide: function() {},
-        startSlide: function() {},
-        finishSlide: function() {}
+      const fakeModel = {
+        slide() {},
+        startSlide() {},
+        finishSlide() {},
       };
-      let slide = spyOn(fakeModel, 'slide');
-      let startSlide = spyOn(fakeModel, 'startSlide');
-      let finishSlide = spyOn(fakeModel, 'finishSlide');
-      let rangeSlider = new RangeSlider(fakeModel);
+      const slide = spyOn(fakeModel, 'slide');
+      const startSlide = spyOn(fakeModel, 'startSlide');
+      const finishSlide = spyOn(fakeModel, 'finishSlide');
+      const rangeSlider = new RangeSlider(fakeModel);
 
       rangeSlider.slide('from', 0);
       expect(slide).toHaveBeenCalledTimes(1);
@@ -37,14 +36,14 @@ describe('RangeSlider', () => {
       expect(finishSlide).toHaveBeenCalledTimes(1);
       expect(slide).toHaveBeenCalledWith(1);
       expect(startSlide).toHaveBeenCalledWith('to');
-    })
-  })
+    });
+  });
 
   describe('update', () => {
     it('должен один раз вызвать из модели метод update', () => {
-      let fakeModel = {update: function() {}};
-      let update = spyOn(fakeModel, 'update');
-      let rangeSlider = new RangeSlider(fakeModel);
+      const fakeModel = { update() {} };
+      const update = spyOn(fakeModel, 'update');
+      const rangeSlider = new RangeSlider(fakeModel);
 
       rangeSlider.update({});
       expect(update).toHaveBeenCalledTimes(1);
@@ -52,20 +51,19 @@ describe('RangeSlider', () => {
 
       update.calls.reset();
 
-      rangeSlider.update({a: 1});
+      rangeSlider.update({ a: 1 });
       expect(update).toHaveBeenCalledTimes(1);
-      expect(update).toHaveBeenCalledWith({a: 1});
-    })
-  })
+      expect(update).toHaveBeenCalledWith({ a: 1 });
+    });
+  });
 
   describe('reset', () => {
     it('должен один раз вызвать из модели метод reset', () => {
-      let fakeModel = {reset: function() {}};
-      let reset = spyOn(fakeModel, 'reset');
-      let rangeSlider = new RangeSlider(fakeModel);
+      const fakeModel = { reset() {} };
+      const reset = spyOn(fakeModel, 'reset');
+      const rangeSlider = new RangeSlider(fakeModel);
       rangeSlider.reset();
       expect(reset).toHaveBeenCalledTimes(1);
-    })
-  })
-
-})
+    });
+  });
+});

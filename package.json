@@ -37,7 +37,7 @@
   "scripts": {
     "build": "webpack",
     "test": "karma start",
-    "lint": "eslint src/js"
+    "lint": "eslint src/ *.js"
   },
   "version": "1.0.0"
 }

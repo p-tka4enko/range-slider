@@ -55,7 +55,7 @@ const rangeSlider1 = $slider1.rangeSlider({
   onChange: (c) => {
     $from1.val(c.from);
     $to1.val(c.to);
-  }
+  },
 }).data('range-slider');
 
 // Slider 2
@@ -109,7 +109,7 @@ const rangeSlider2 = $slider2.rangeSlider({
   onChange: (c) => {
     $from2.val(c.from);
     $to2.val(c.to);
-  }
+  },
 }).data('range-slider');
 
 // Slider 3
@@ -165,5 +165,5 @@ const rangeSlider3 = $slider3.rangeSlider({
   onChange: (c) => {
     $from3.val(c.from);
     $to3.val(c.to);
-  }
+  },
 }).data('range-slider');
