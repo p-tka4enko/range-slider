@@ -68,9 +68,9 @@ class Model {
     } = config;
 
     if (this._currentHandle === this.handle.FROM) {
-      config.from = configNormalizer.getAlignedValue(value, min, range ? to : max, step);
+      config.from = configNormalizer.getNormalizedValue(value, min, range ? to : max, step);
     } else if (this._currentHandle === this.handle.TO) {
-      config.to = configNormalizer.getAlignedValue(value, from, max, step);
+      config.to = configNormalizer.getNormalizedValue(value, from, max, step);
     }
 
     if ((config.from !== from) || (config.to !== to)) {
@@ -99,7 +99,7 @@ class Model {
 
     configNormalizer.checkConfigTypes(validatedConfig);
 
-    return configNormalizer.getAlignedConfig(validatedConfig);
+    return configNormalizer.getNormalizedConfig(validatedConfig);
   }
 
   getNearestHandle(value) {

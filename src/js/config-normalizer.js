@@ -22,7 +22,7 @@ class ConfigNormalizer {
     };
   }
 
-  getAlignedConfig(config) {
+  getNormalizedConfig(config) {
     let {
       min,
       max,
@@ -39,8 +39,8 @@ class ConfigNormalizer {
       max = min;
     }
 
-    from = this.getAlignedValue(from, min, max, step);
-    to = this.getAlignedValue(to, from, max, step);
+    from = this.getNormalizedValue(from, min, max, step);
+    to = this.getNormalizedValue(to, from, max, step);
 
     if (from > to) {
       from = to;
@@ -56,7 +56,7 @@ class ConfigNormalizer {
     };
   }
 
-  getAlignedValue(value, min, max, step) {
+  getNormalizedValue(value, min, max, step) {
     let alignedValue = value;
     const sliderSize = max - min;
 
