@@ -76,15 +76,6 @@ describe('Model', () => {
   describe('validate', () => {
     let model = new Model();
 
-    it('должен выбросить исключение при неверном типе данных конфигурации', () => {
-      expect(function() {model.validate()}).toThrow();
-      expect(function() {model.validate(undefined)}).toThrow();
-      expect(function() {model.validate(0)}).toThrow();
-      expect(function() {model.validate('0')}).toThrow();
-      expect(function() {model.validate(true)}).toThrow();
-      expect(function() {model.validate(null)}).toThrow();
-    })
-
     it('должен выбросить исключение при неверном типе данных свойства min', () => {
       expect(function() {model.validate({min: NaN})}).toThrow();
       expect(function() {model.validate({min: '0'})}).toThrow();
@@ -311,15 +302,6 @@ describe('Model', () => {
       model.addObserver(o);
       expect(model.addObserver(o)).toEqual(false);
     })
-
-    it('должен выбросить исключение при неверном типе данных наблюдателя', () => {
-      let model = new Model();
-      expect(function(){model.addObserver(0)}).toThrow();
-      expect(function(){model.addObserver('0')}).toThrow();
-      expect(function(){model.addObserver(false)}).toThrow();
-      expect(function(){model.addObserver(null)}).toThrow();
-      expect(function(){model.addObserver({})}).toThrow();
-    })
   })
 
   describe('update', () => {
@@ -488,22 +470,6 @@ describe('Model', () => {
       let result2 = model.startSlide(model.handle.FROM);
       expect(result1).toEqual(true);
       expect(result2).toEqual(false);
-    })
-
-    it('должен выбросить исключение при неверном типе данных ползунка', () => {
-      let model = new Model();
-      expect(function() {model.startSlide('0')}).toThrow();
-      expect(function() {model.startSlide(false)}).toThrow();
-      expect(function() {model.startSlide({})}).toThrow();
-      expect(function() {model.startSlide(null)}).toThrow();
-      expect(function() {model.startSlide(function(){})}).toThrow();
-      expect(function() {model.startSlide(undefined)}).toThrow();
-      expect(function() {model.startSlide()}).toThrow();
-    })
-
-    it('должен выбросить исключение, если ползунок не равен FROM или TO', () => {
-      let model = new Model();
-      expect(function() {model.startSlide('one')}).toThrow();
     })
   })
 
