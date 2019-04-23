@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 import RangeSlider from '../js/range-slider';
 import './components/slider-block/slider-block.styl';
-import './demo.styl';
+import './index.styl';
 import './favicon.ico';
 
 RangeSlider.init($);

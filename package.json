@@ -26,7 +26,8 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^2.0.1",
     "karma-mocha-reporter": "^2.2.5",
-    "karma-webpack": "^3.0.5"
+    "karma-webpack": "^3.0.5",
+    "webpack-dev-server": "^3.3.1"
   },
   "main": "dist/js/range-slider.js",
   "name": "range-slider",
@@ -36,8 +37,9 @@
   },
   "scripts": {
     "build": "webpack",
-    "test": "karma start",
-    "lint": "eslint src/ *.js"
+    "lint": "eslint src/ *.js",
+    "server": "webpack-dev-server",
+    "test": "karma start"
   },
   "version": "1.0.0"
 }

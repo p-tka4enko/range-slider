@@ -8,7 +8,7 @@ const pluginConfig = {
   entry: './src/js/range-slider.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/range-slider.js',
+    filename: 'plugin/js/range-slider.js',
     library: 'RangeSlider',
     libraryTarget: 'commonjs2',
   },
@@ -16,7 +16,7 @@ const pluginConfig = {
     new CopyWebpackPlugin([
       {
         from: 'src/styl',
-        to: 'css/[name].css',
+        to: 'plugin/css/[name].css',
         transform(content) {
           let css;
           Stylus(content.toString()).render((err, result) => { css = result; });
@@ -29,15 +29,15 @@ const pluginConfig = {
 
 const demoConfig = {
   mode: 'production',
-  entry: './src/demo/demo.js',
+  entry: './src/demo/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist/demo'),
-    filename: 'demo.js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'demo.html',
-      template: './src/demo/demo.pug',
+      filename: 'index.html',
+      template: './src/demo/index.pug',
     }),
   ],
   module: {
@@ -61,6 +61,10 @@ const demoConfig = {
         },
       },
     ],
+  },
+  devServer: {
+    inline: true,
+    hot: true,
   },
 };
 
