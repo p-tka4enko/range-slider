@@ -2,6 +2,11 @@
 Плагин для jQuery, реализующий слайдер. \
 [Демо](https://pasha-zolotukhin.github.io/range-slider/demo/demo.html)
 
+## Клонирование репозитория
+```console
+$ git clone https://github.com/pasha-zolotukhin/range-slider.git
+```
+
 ## Сборка проекта
 ```console
 $ cd range-slider
