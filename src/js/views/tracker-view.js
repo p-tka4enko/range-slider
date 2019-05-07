@@ -41,9 +41,15 @@ class TrackerView {
       vertical,
     } = this._model.getConfig();
 
-    const fromInPercent = min !== max ? (from - min) / (max - min) * 100 : 0;
-    const toInPercent = min !== max ? (to - min) / (max - min) * 100 : 0;
-    const trackerSizeInPercent = range ? toInPercent - fromInPercent : fromInPercent;
+    const fromInPercent = min !== max
+      ? (from - min) / (max - min) * 100
+      : 0;
+    const toInPercent = min !== max
+      ? (to - min) / (max - min) * 100
+      : 0;
+    const trackerSizeInPercent = range
+      ? toInPercent - fromInPercent
+      : fromInPercent;
 
     if (vertical) {
       this._$tracker.css('height', `${trackerSizeInPercent}%`).css('width', '');

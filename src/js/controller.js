@@ -44,7 +44,9 @@ class Controller {
 
     const point = this._getPointCoord(event);
     const sliderSizeInPx = this._getSliderSizeInPx();
-    const k = vertical ? 1 - point / (sliderSizeInPx - 1) : point / (sliderSizeInPx - 1);
+    const k = vertical
+      ? 1 - point / (sliderSizeInPx - 1)
+      : point / (sliderSizeInPx - 1);
     const value = min + (max - min) * k;
 
     return value;

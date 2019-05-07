@@ -49,8 +49,12 @@ class HandleView {
       vertical,
     } = this._model.getConfig();
 
-    const fromInPercent = min !== max ? (from - min) / (max - min) * 100 : 0;
-    const toInPercent = min !== max ? (to - min) / (max - min) * 100 : 0;
+    const fromInPercent = min !== max
+      ? (from - min) / (max - min) * 100
+      : 0;
+    const toInPercent = min !== max
+      ? (to - min) / (max - min) * 100
+      : 0;
 
     if (vertical) {
       this._$leftHandle.css('bottom', `${fromInPercent}%`).css('left', '');

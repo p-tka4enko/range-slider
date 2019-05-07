@@ -96,7 +96,9 @@ class HintView {
 
   _getOffsetLeftWithoutFallingOutOfDocument(left, width) {
     const htmlWidth = $('html').width();
-    const maybeLeftGreaterThanHtmlWidth = left + width > htmlWidth ? htmlWidth - width : left;
+    const maybeLeftGreaterThanHtmlWidth = left + width > htmlWidth
+      ? htmlWidth - width
+      : left;
     const newLeft = left < 0 ? 0 : maybeLeftGreaterThanHtmlWidth;
 
     return newLeft;
