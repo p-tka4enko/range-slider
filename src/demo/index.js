@@ -8,20 +8,20 @@ import './favicon.ico';
 RangeSlider.init($);
 
 // Slider 1
-const $sliderBlock1 = $('.slider-block').eq(0);
-const $slider1 = $sliderBlock1.find('.slider-block__slider');
-const $min1 = $sliderBlock1.find('.slider-block__min');
-const $max1 = $sliderBlock1.find('.slider-block__max');
-const $range1 = $sliderBlock1.find('.slider-block__range');
-const $from1 = $sliderBlock1.find('.slider-block__from');
-const $to1 = $sliderBlock1.find('.slider-block__to');
-const $step1 = $sliderBlock1.find('.slider-block__step');
-const $vertical1 = $sliderBlock1.find('.slider-block__vertical');
-const $displayHint1 = $sliderBlock1.find('.slider-block__display-hint');
-const $displayTracker1 = $sliderBlock1.find('.slider-block__display-tracker');
-const $displayGrid1 = $sliderBlock1.find('.slider-block__display-grid');
-const $gridStep1 = $sliderBlock1.find('.slider-block__grid-step');
-const $disabled1 = $sliderBlock1.find('.slider-block__disabled');
+const $sliderBlock1 = $('.js-slider-block').eq(0);
+const $slider1 = $sliderBlock1.find('.js-slider-block__slider');
+const $min1 = $sliderBlock1.find('.js-slider-block__min');
+const $max1 = $sliderBlock1.find('.js-slider-block__max');
+const $range1 = $sliderBlock1.find('.js-slider-block__range');
+const $from1 = $sliderBlock1.find('.js-slider-block__from');
+const $to1 = $sliderBlock1.find('.js-slider-block__to');
+const $step1 = $sliderBlock1.find('.js-slider-block__step');
+const $vertical1 = $sliderBlock1.find('.js-slider-block__vertical');
+const $displayHint1 = $sliderBlock1.find('.js-slider-block__display-hint');
+const $displayTracker1 = $sliderBlock1.find('.js-slider-block__display-tracker');
+const $displayGrid1 = $sliderBlock1.find('.js-slider-block__display-grid');
+const $gridStep1 = $sliderBlock1.find('.js-slider-block__grid-step');
+const $disabled1 = $sliderBlock1.find('.js-slider-block__disabled');
 
 const rangeSlider1 = $slider1.rangeSlider({
   onInit: (config) => {
@@ -91,20 +91,20 @@ const rangeSlider1 = $slider1.rangeSlider({
 }).data('range-slider');
 
 // Slider 2
-const $sliderBlock2 = $('.slider-block').eq(1);
-const $slider2 = $sliderBlock2.find('.slider-block__slider');
-const $min2 = $sliderBlock2.find('.slider-block__min');
-const $max2 = $sliderBlock2.find('.slider-block__max');
-const $range2 = $sliderBlock2.find('.slider-block__range');
-const $from2 = $sliderBlock2.find('.slider-block__from');
-const $to2 = $sliderBlock2.find('.slider-block__to');
-const $step2 = $sliderBlock2.find('.slider-block__step');
-const $vertical2 = $sliderBlock2.find('.slider-block__vertical');
-const $displayHint2 = $sliderBlock2.find('.slider-block__display-hint');
-const $displayTracker2 = $sliderBlock2.find('.slider-block__display-tracker');
-const $displayGrid2 = $sliderBlock2.find('.slider-block__display-grid');
-const $gridStep2 = $sliderBlock2.find('.slider-block__grid-step');
-const $disabled2 = $sliderBlock2.find('.slider-block__disabled');
+const $sliderBlock2 = $('.js-slider-block').eq(1);
+const $slider2 = $sliderBlock2.find('.js-slider-block__slider');
+const $min2 = $sliderBlock2.find('.js-slider-block__min');
+const $max2 = $sliderBlock2.find('.js-slider-block__max');
+const $range2 = $sliderBlock2.find('.js-slider-block__range');
+const $from2 = $sliderBlock2.find('.js-slider-block__from');
+const $to2 = $sliderBlock2.find('.js-slider-block__to');
+const $step2 = $sliderBlock2.find('.js-slider-block__step');
+const $vertical2 = $sliderBlock2.find('.js-slider-block__vertical');
+const $displayHint2 = $sliderBlock2.find('.js-slider-block__display-hint');
+const $displayTracker2 = $sliderBlock2.find('.js-slider-block__display-tracker');
+const $displayGrid2 = $sliderBlock2.find('.js-slider-block__display-grid');
+const $gridStep2 = $sliderBlock2.find('.js-slider-block__grid-step');
+const $disabled2 = $sliderBlock2.find('.js-slider-block__disabled');
 
 const rangeSlider2 = $slider2.rangeSlider({
   range: true,
@@ -177,20 +177,20 @@ const rangeSlider2 = $slider2.rangeSlider({
 }).data('range-slider');
 
 // Slider 3
-const $sliderBlock3 = $('.slider-block').eq(2);
-const $slider3 = $sliderBlock3.find('.slider-block__slider');
-const $min3 = $sliderBlock3.find('.slider-block__min');
-const $max3 = $sliderBlock3.find('.slider-block__max');
-const $range3 = $sliderBlock3.find('.slider-block__range');
-const $from3 = $sliderBlock3.find('.slider-block__from');
-const $to3 = $sliderBlock3.find('.slider-block__to');
-const $step3 = $sliderBlock3.find('.slider-block__step');
-const $vertical3 = $sliderBlock3.find('.slider-block__vertical');
-const $displayHint3 = $sliderBlock3.find('.slider-block__display-hint');
-const $displayTracker3 = $sliderBlock3.find('.slider-block__display-tracker');
-const $displayGrid3 = $sliderBlock3.find('.slider-block__display-grid');
-const $gridStep3 = $sliderBlock3.find('.slider-block__grid-step');
-const $disabled3 = $sliderBlock3.find('.slider-block__disabled');
+const $sliderBlock3 = $('.js-slider-block').eq(2);
+const $slider3 = $sliderBlock3.find('.js-slider-block__slider');
+const $min3 = $sliderBlock3.find('.js-slider-block__min');
+const $max3 = $sliderBlock3.find('.js-slider-block__max');
+const $range3 = $sliderBlock3.find('.js-slider-block__range');
+const $from3 = $sliderBlock3.find('.js-slider-block__from');
+const $to3 = $sliderBlock3.find('.js-slider-block__to');
+const $step3 = $sliderBlock3.find('.js-slider-block__step');
+const $vertical3 = $sliderBlock3.find('.js-slider-block__vertical');
+const $displayHint3 = $sliderBlock3.find('.js-slider-block__display-hint');
+const $displayTracker3 = $sliderBlock3.find('.js-slider-block__display-tracker');
+const $displayGrid3 = $sliderBlock3.find('.js-slider-block__display-grid');
+const $gridStep3 = $sliderBlock3.find('.js-slider-block__grid-step');
+const $disabled3 = $sliderBlock3.find('.js-slider-block__disabled');
 
 const rangeSlider3 = $slider3.rangeSlider({
   min: 1,
