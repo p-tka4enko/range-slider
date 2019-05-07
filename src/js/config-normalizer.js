@@ -31,9 +31,9 @@ class ConfigNormalizer {
       to,
     } = config;
 
-    min = +min.toFixed(4);
-    max = +max.toFixed(4);
-    step = +step.toFixed(4);
+    min = Number(min.toFixed(4));
+    max = Number(max.toFixed(4));
+    step = Number(step.toFixed(4));
 
     if (max < min) {
       max = min;
@@ -63,8 +63,8 @@ class ConfigNormalizer {
     if (alignedValue < min) {
       alignedValue = min;
     } else if (alignedValue <= (max - (sliderSize % step))) {
-      const point1 = +(alignedValue - ((alignedValue - min) % step)).toFixed(4);
-      const point2 = +((alignedValue + step) - ((alignedValue - min) % step)).toFixed(4);
+      const point1 = Number((alignedValue - ((alignedValue - min) % step)).toFixed(4));
+      const point2 = Number(((alignedValue + step) - ((alignedValue - min) % step)).toFixed(4));
       const average = (point1 + point2) / 2;
       alignedValue = alignedValue < average ? point1 : point2;
     } else {
