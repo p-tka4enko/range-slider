@@ -1,7 +1,7 @@
 {
   "author": "Pasha Tkachenko",
   "bugs": {
-    "url": "https://github.com/pasha-zolotukhin/range-slider/issues"
+    "url": "https://github.com/p-tka4enko/range-slider/issues"
   },
   "dependencies": {
     "copy-webpack-plugin": "^5.0.2",
@@ -33,7 +33,7 @@
   "name": "range-slider",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pasha-zolotukhin/range-slider.git"
+    "url": "https://github.com/p-tka4enko/range-slider.git"
   },
   "scripts": {
     "build": "webpack",
