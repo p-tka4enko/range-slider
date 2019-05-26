@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 import SliderBlock from './components/slider-block/slider-block';
 import './index.styl';
 import './favicon.ico';

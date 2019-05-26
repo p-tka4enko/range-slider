@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class HandleView {
   constructor(model, root) {
     this._model = model;

@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class TrackerView {
   constructor(model, root) {
     this._model = model;

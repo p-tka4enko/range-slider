@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class MainView {
   constructor(model, root) {
     this._model = model;

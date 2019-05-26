@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class GridView {
   constructor(model, root) {
     this._model = model;

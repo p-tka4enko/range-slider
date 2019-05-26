@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Stylus = require('stylus');
@@ -35,6 +36,10 @@ const demoConfig = {
     filename: 'index.js',
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/demo/index.pug',

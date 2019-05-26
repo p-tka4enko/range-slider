@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class HintView {
   constructor(model, handleView) {
     this._model = model;

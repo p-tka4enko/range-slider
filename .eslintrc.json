@@ -8,6 +8,8 @@
   },
 
   "globals": {
+    "$": "readonly",
+    "jQuery": "readonly",
     "window": "readonly",
     "document": "readonly",
     "describe": "readonly",

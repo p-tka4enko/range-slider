@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class Controller {
   constructor(model, views, id) {
     this._model = model;

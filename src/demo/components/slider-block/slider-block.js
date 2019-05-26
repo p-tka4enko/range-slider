@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 import RangeSlider from '../../../js/range-slider';
 import './slider-block.styl';
 
