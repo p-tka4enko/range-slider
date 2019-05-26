@@ -9,7 +9,8 @@ RangeSlider.init($);
 
 // Slider 1
 const $sliderBlock1 = $('.js-slider-block').eq(0);
-const $slider1 = $sliderBlock1.find('.js-slider-block__slider');
+const $sliderWrapper1 = $sliderBlock1.find('.js-slider-block__slider-wrapper');
+const $slider1 = $('<div>').appendTo($sliderWrapper1);
 const $min1 = $sliderBlock1.find('.js-slider-block__min');
 const $max1 = $sliderBlock1.find('.js-slider-block__max');
 const $range1 = $sliderBlock1.find('.js-slider-block__range');
@@ -92,7 +93,8 @@ const rangeSlider1 = $slider1.rangeSlider({
 
 // Slider 2
 const $sliderBlock2 = $('.js-slider-block').eq(1);
-const $slider2 = $sliderBlock2.find('.js-slider-block__slider');
+const $sliderWrapper2 = $sliderBlock2.find('.js-slider-block__slider-wrapper');
+const $slider2 = $('<div>').appendTo($sliderWrapper2);
 const $min2 = $sliderBlock2.find('.js-slider-block__min');
 const $max2 = $sliderBlock2.find('.js-slider-block__max');
 const $range2 = $sliderBlock2.find('.js-slider-block__range');
@@ -178,7 +180,8 @@ const rangeSlider2 = $slider2.rangeSlider({
 
 // Slider 3
 const $sliderBlock3 = $('.js-slider-block').eq(2);
-const $slider3 = $sliderBlock3.find('.js-slider-block__slider');
+const $sliderWrapper3 = $sliderBlock3.find('.js-slider-block__slider-wrapper');
+const $slider3 = $('<div>').appendTo($sliderWrapper3);
 const $min3 = $sliderBlock3.find('.js-slider-block__min');
 const $max3 = $sliderBlock3.find('.js-slider-block__max');
 const $range3 = $sliderBlock3.find('.js-slider-block__range');
