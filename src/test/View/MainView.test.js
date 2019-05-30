@@ -1,4 +1,4 @@
-import MainView from '../../js/views/main-view';
+import MainView from '../../js/View/MainView';
 
 describe('MainView', () => {
   describe('constructor', () => {

@@ -1,4 +1,4 @@
-import HandleView from '../../js/views/handle-view';
+import HandleView from '../../js/View/HandleView';
 
 describe('HandleView', () => {
   describe('constructor', () => {

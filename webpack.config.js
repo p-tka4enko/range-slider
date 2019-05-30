@@ -6,7 +6,7 @@ const Stylus = require('stylus');
 
 const pluginConfig = {
   mode: 'production',
-  entry: './src/js/range-slider.js',
+  entry: './src/js/RangeSlider/RangeSlider.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'plugin/js/range-slider.js',

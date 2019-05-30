@@ -1,10 +1,10 @@
-import Model from './model';
-import Controller from './controller';
-import MainView from './views/main-view';
-import HandleView from './views/handle-view';
-import HintView from './views/hint-view';
-import TrackerView from './views/tracker-view';
-import GridView from './views/grid-view';
+import Model from '../Model/Model';
+import Controller from '../Controller/Controller';
+import MainView from '../View/MainView';
+import HandleView from '../View/HandleView';
+import HintView from '../View/HintView';
+import TrackerView from '../View/TrackerView';
+import GridView from '../View/GridView';
 
 class RangeSlider {
   constructor(model) {

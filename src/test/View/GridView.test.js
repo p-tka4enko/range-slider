@@ -1,4 +1,4 @@
-import GridView from '../../js/views/grid-view';
+import GridView from '../../js/View/GridView';
 
 describe('GridView', () => {
   describe('constructor', () => {

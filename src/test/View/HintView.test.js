@@ -1,4 +1,4 @@
-import HintView from '../../js/views/hint-view';
+import HintView from '../../js/View/HintView';
 
 describe('HintView', () => {
   describe('constructor', () => {

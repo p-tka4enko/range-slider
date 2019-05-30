@@ -1,4 +1,4 @@
-import TrackerView from '../../js/views/tracker-view';
+import TrackerView from '../../js/View/TrackerView';
 
 describe('TrackerView', () => {
   describe('constructor', () => {

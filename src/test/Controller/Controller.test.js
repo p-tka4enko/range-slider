@@ -1,4 +1,4 @@
-import Controller from '../js/controller';
+import Controller from '../../js/Controller/Controller';
 
 describe('Controller', () => {
   describe('constructor', () => {

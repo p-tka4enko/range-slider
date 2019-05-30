@@ -1,4 +1,4 @@
-import Model from '../js/model';
+import Model from '../../js/Model/Model';
 
 describe('Model', () => {
   const defaultConfig = {
