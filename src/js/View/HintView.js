@@ -58,13 +58,13 @@ class HintView {
     const { vertical, from, to } = this._model.getConfig();
 
     if (vertical) {
-      this._alignObjBetweenVerticalPoints($leftHint, leftHandleTopSide, leftHandleBottomSide);
-      this._alignObjBetweenVerticalPoints($rightHint, rightHandleTopSide, rightHandleBottomSide);
+      this._alignHintBetweenVerticalPoints($leftHint, leftHandleTopSide, leftHandleBottomSide);
+      this._alignHintBetweenVerticalPoints($rightHint, rightHandleTopSide, rightHandleBottomSide);
       $leftHint.css('left', '');
       $rightHint.css('left', '');
     } else {
-      this._alignObjBetweenHorizontalPoints($leftHint, leftHandleLeftSide, leftHandleRightSide);
-      this._alignObjBetweenHorizontalPoints($rightHint, rightHandleLeftSide, rightHandleRightSide);
+      this._alignHintBetweenHorizontalPoints($leftHint, leftHandleLeftSide, leftHandleRightSide);
+      this._alignHintBetweenHorizontalPoints($rightHint, rightHandleLeftSide, rightHandleRightSide);
       $leftHint.css('top', '');
       $rightHint.css('top', '');
     }
@@ -73,23 +73,23 @@ class HintView {
       $leftHint.text(`${from} — ${to}`);
       $rightHint.addClass('range-slider__hint_hidden');
       if (vertical) {
-        this._alignObjBetweenVerticalPoints($leftHint, rightHandleTopSide, leftHandleBottomSide);
+        this._alignHintBetweenVerticalPoints($leftHint, rightHandleTopSide, leftHandleBottomSide);
       } else {
-        this._alignObjBetweenHorizontalPoints($leftHint, leftHandleLeftSide, rightHandleRightSide);
+        this._alignHintBetweenHorizontalPoints($leftHint, leftHandleLeftSide, rightHandleRightSide);
       }
     }
   }
 
-  _alignObjBetweenHorizontalPoints($obj, point1, point2) {
-    let left = point1 - ($obj.outerWidth() - point2 + point1) / 2;
-    left = this._getOffsetLeftWithoutFallingOutOfDocument(left, $obj.outerWidth());
-    $obj.offset({ left });
+  _alignHintBetweenHorizontalPoints($hint, point1, point2) {
+    let left = point1 - ($hint.outerWidth() - point2 + point1) / 2;
+    left = this._getOffsetLeftWithoutFallingOutOfDocument(left, $hint.outerWidth());
+    $hint.offset({ left });
   }
 
-  _alignObjBetweenVerticalPoints($obj, point1, point2) {
-    let top = point1 - ($obj.outerHeight() - point2 + point1) / 2;
-    top = this._getOffsetTopWithoutFallingOutOfDocument(top, $obj.outerHeight());
-    $obj.offset({ top });
+  _alignHintBetweenVerticalPoints($hint, point1, point2) {
+    let top = point1 - ($hint.outerHeight() - point2 + point1) / 2;
+    top = this._getOffsetTopWithoutFallingOutOfDocument(top, $hint.outerHeight());
+    $hint.offset({ top });
   }
 
   _getOffsetLeftWithoutFallingOutOfDocument(left, width) {
