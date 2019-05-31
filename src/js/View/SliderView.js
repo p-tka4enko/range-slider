@@ -1,4 +1,4 @@
-class MainView {
+class SliderView {
   constructor(model, root) {
     this._model = model;
     this._$root = $(root).addClass('range-slider');
@@ -20,7 +20,7 @@ class MainView {
   }
 
   toString() {
-    return '{"class": "MainView"}';
+    return '{"class": "SliderView"}';
   }
 
   _setToVertical() {
@@ -32,4 +32,4 @@ class MainView {
   }
 }
 
-export default MainView;
+export default SliderView;

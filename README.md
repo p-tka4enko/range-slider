@@ -139,7 +139,7 @@ slider.reset();
 
 ### Вид
 Слой производит рассчеты, связанные с отображением элементов. В данном случае он представлен в виде нескольких классов: \
-\> **MainView(model: Model, root: DOM Element)** - полоска слайдера и сам слайдер. Основной класс. \
+\> **SliderView(model: Model, root: DOM Element)** - полоска слайдера и сам слайдер. Основной класс. \
 \> **HandleView(model: Model, root: DOM Element)** - ползунки. \
 \> **HintView(model: Model, handleView: HandleView)** - подсказки со значениями ползунков. Зависит от HandleView. \
 \> **TrackerView(model: Model, root: DOM Element)** - трекер (цветная полоска возле ползунков). \
@@ -156,7 +156,7 @@ slider.reset();
 Слой реагирует на действия пользователя и вызывает нужные методы модели. Представлен в виде класса **Controller(model: Model, views: object, id: number)**.
 
 Объект views, который передается в конструкторе, представляет из себя коллекцию видов, необходимых для работы слайдера. Имеет следующие свойства: \
-\> **mainView: MainView** \
+\> **sliderView: SliderView** \
 \> **handleView: HandleView** \
 \> **hintView: HintView** \
 \> **trackerView: TrackerView** \

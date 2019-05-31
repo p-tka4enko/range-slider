@@ -14,7 +14,7 @@ class Controller {
     const $window = $(window);
     const $document = $(document);
 
-    this._views.mainView.getRoot().on(`mousedown.Controller${this._id}`, this._handleStartSlide.bind(this));
+    this._views.sliderView.getRoot().on(`mousedown.Controller${this._id}`, this._handleStartSlide.bind(this));
     $window.on(`mousemove.Controller${this._id}`, this._handleSlide.bind(this));
     $window.on(`mouseup.Controller${this._id}`, this._model.finishSlide.bind(this._model));
     $window.on(`resize.Controller${this._id}`, this._updateViews.bind(this));
@@ -52,31 +52,31 @@ class Controller {
 
   _getPointCoord(event) {
     const { vertical } = this._model.getConfig();
-    const { mainView } = this._views;
+    const { sliderView } = this._views;
 
-    const pointCoordX = event.pageX - mainView.getRoot().offset().left;
-    const pointCoordY = event.pageY - mainView.getRoot().offset().top;
+    const pointCoordX = event.pageX - sliderView.getRoot().offset().left;
+    const pointCoordY = event.pageY - sliderView.getRoot().offset().top;
 
     return vertical ? pointCoordY : pointCoordX;
   }
 
   _getSliderSizeInPx() {
     const { vertical } = this._model.getConfig();
-    const { mainView } = this._views;
+    const { sliderView } = this._views;
 
-    return vertical ? mainView.getRoot().height() : mainView.getRoot().width();
+    return vertical ? sliderView.getRoot().height() : sliderView.getRoot().width();
   }
 
   _updateViews() {
     const {
-      mainView,
+      sliderView,
       handleView,
       hintView,
       trackerView,
       gridView,
     } = this._views;
 
-    mainView.update();
+    sliderView.update();
     handleView.update();
     hintView.update();
     trackerView.update();

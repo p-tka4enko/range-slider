@@ -1,6 +1,6 @@
 import Model from '../Model/Model';
 import Controller from '../Controller/Controller';
-import MainView from '../View/MainView';
+import SliderView from '../View/SliderView';
 import HandleView from '../View/HandleView';
 import HintView from '../View/HintView';
 import TrackerView from '../View/TrackerView';
@@ -39,14 +39,14 @@ class RangeSlider {
           const htmlConfig = $(this).data();
           const model = new Model(config, htmlConfig);
 
-          const mainView = new MainView(model, this);
+          const sliderView = new SliderView(model, this);
           const handleView = new HandleView(model, this);
           const hintView = new HintView(model, handleView);
           const trackerView = new TrackerView(model, this);
           const gridView = new GridView(model, this);
 
           new Controller(model, {
-            mainView,
+            sliderView,
             handleView,
             hintView,
             trackerView,
