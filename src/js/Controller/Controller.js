@@ -14,14 +14,19 @@ class Controller {
     const $window = $(window);
     const $document = $(document);
 
-    this._views.sliderView.getRoot().on(`mousedown.Controller${this._id}`, this._handleStartSlide.bind(this));
-    $window.on(`mousemove.Controller${this._id}`, this._handleSlide.bind(this));
-    $window.on(`mouseup.Controller${this._id}`, this._model.finishSlide.bind(this._model));
-    $window.on(`resize.Controller${this._id}`, this._updateViews.bind(this));
-    $document.ready(this._updateViews.bind(this));
+    const handleControllerStartSlide = this._handleControllerStartSlide.bind(this);
+    const handleControllerSlide = this._handleControllerSlide.bind(this);
+    const handleControllerFinishSlide = this._handleControllerFinishSlide.bind(this);
+    const handleControllerUpdateViews = this._handleControllerUpdateViews.bind(this);
+
+    this._views.sliderView.getRoot().on(`mousedown.Controller${this._id}`, handleControllerStartSlide);
+    $window.on(`mousemove.Controller${this._id}`, handleControllerSlide);
+    $window.on(`mouseup.Controller${this._id}`, handleControllerFinishSlide);
+    $window.on(`resize.Controller${this._id}`, handleControllerUpdateViews);
+    $document.ready(handleControllerUpdateViews);
   }
 
-  _handleStartSlide(event) {
+  _handleControllerStartSlide(event) {
     event.preventDefault();
 
     const value = this._calculateValue(event);
@@ -31,7 +36,7 @@ class Controller {
     this._model.slide(value);
   }
 
-  _handleSlide(event) {
+  _handleControllerSlide(event) {
     const value = this._calculateValue(event);
 
     this._model.slide(value);
@@ -67,7 +72,11 @@ class Controller {
     return vertical ? sliderView.getRoot().height() : sliderView.getRoot().width();
   }
 
-  _updateViews() {
+  _handleControllerFinishSlide() {
+    this._model.finishSlide();
+  }
+
+  _handleControllerUpdateViews() {
     const {
       sliderView,
       handleView,
