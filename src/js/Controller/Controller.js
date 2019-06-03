@@ -14,20 +14,20 @@ class Controller {
     const $window = $(window);
     const $document = $(document);
 
-    const handleRangeSliderStartSlide = this._handleRangeSliderStartSlide.bind(this);
-    const handleWindowSlide = this._handleWindowSlide.bind(this);
-    const handleWindowFinishSlide = this._handleWindowFinishSlide.bind(this);
-    const handleWindowUpdateViews = this._handleWindowUpdateViews.bind(this);
-    const handleDocumentUpdateViews = this._handleDocumentUpdateViews.bind(this);
+    const handleRangeSliderMouseDown = this._handleRangeSliderMouseDown.bind(this);
+    const handleWindowMouseMove = this._handleWindowMouseMove.bind(this);
+    const handleWindowMouseUp = this._handleWindowMouseUp.bind(this);
+    const handleWindowResize = this._handleWindowResize.bind(this);
+    const handleDocumentReady = this._handleDocumentReady.bind(this);
 
-    this._views.sliderView.getRoot().on(`mousedown.Controller${this._id}`, handleRangeSliderStartSlide);
-    $window.on(`mousemove.Controller${this._id}`, handleWindowSlide);
-    $window.on(`mouseup.Controller${this._id}`, handleWindowFinishSlide);
-    $window.on(`resize.Controller${this._id}`, handleWindowUpdateViews);
-    $document.ready(handleDocumentUpdateViews);
+    this._views.sliderView.getRoot().on(`mousedown.Controller${this._id}`, handleRangeSliderMouseDown);
+    $window.on(`mousemove.Controller${this._id}`, handleWindowMouseMove);
+    $window.on(`mouseup.Controller${this._id}`, handleWindowMouseUp);
+    $window.on(`resize.Controller${this._id}`, handleWindowResize);
+    $document.ready(handleDocumentReady);
   }
 
-  _handleRangeSliderStartSlide(event) {
+  _handleRangeSliderMouseDown(event) {
     event.preventDefault();
 
     const value = this._calculateValue(event);
@@ -37,7 +37,7 @@ class Controller {
     this._model.slide(value);
   }
 
-  _handleWindowSlide(event) {
+  _handleWindowMouseMove(event) {
     const value = this._calculateValue(event);
 
     this._model.slide(value);
@@ -73,15 +73,15 @@ class Controller {
     return vertical ? sliderView.getRoot().height() : sliderView.getRoot().width();
   }
 
-  _handleWindowFinishSlide() {
+  _handleWindowMouseUp() {
     this._model.finishSlide();
   }
 
-  _handleWindowUpdateViews() {
+  _handleWindowResize() {
     this._updateViews();
   }
 
-  _handleDocumentUpdateViews() {
+  _handleDocumentReady() {
     this._updateViews();
   }
 
