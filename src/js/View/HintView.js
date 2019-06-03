@@ -1,19 +1,17 @@
 class HintView {
-  constructor(model, handleView) {
-    this._model = model;
+  constructor(handleView) {
     this._handleView = handleView;
     this._$leftHint = $('<div>').appendTo(handleView.getLeftHandle()).addClass('range-slider__hint');
     this._$rightHint = $('<div>').appendTo(handleView.getRightHandle()).addClass('range-slider__hint');
-    this._model.addObserver(this.update.bind(this));
   }
 
-  update() {
-    const { displayHint, from, to } = this._model.getConfig();
+  update(config) {
+    const { displayHint } = config;
 
     if (displayHint) {
       this._displayHints();
-      this._setHintText(from, to);
-      this._calculateHintPosition();
+      this._setHintText(config);
+      this._calculateHintPosition(config);
     } else {
       this._hideHints();
     }
@@ -33,12 +31,12 @@ class HintView {
     this._$rightHint.addClass('range-slider__hint_hidden');
   }
 
-  _setHintText(leftHintText, rightHintText) {
-    this._$leftHint.text(leftHintText);
-    this._$rightHint.text(rightHintText);
+  _setHintText({ from, to }) {
+    this._$leftHint.text(from);
+    this._$rightHint.text(to);
   }
 
-  _calculateHintPosition() {
+  _calculateHintPosition({ vertical, from, to }) {
     const $leftHint = this._$leftHint;
     const $rightHint = this._$rightHint;
 
@@ -54,8 +52,6 @@ class HintView {
     const rightHandleBottomSide = $rightHandle.offset().top + $rightHandle.outerHeight();
     const rightHandleLeftSide = $rightHandle.offset().left;
     const rightHandleRightSide = $rightHandle.offset().left + $rightHandle.outerWidth();
-
-    const { vertical, from, to } = this._model.getConfig();
 
     if (vertical) {
       this._alignHintBetweenVerticalPoints($leftHint, leftHandleTopSide, leftHandleBottomSide);

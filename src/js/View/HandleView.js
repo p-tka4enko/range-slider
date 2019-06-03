@@ -1,9 +1,7 @@
 class HandleView {
-  constructor(model, root) {
-    this._model = model;
+  constructor(root) {
     this._$leftHandle = $('<div>').appendTo(root).addClass('range-slider__handle');
     this._$rightHandle = $('<div>').appendTo(root).addClass('range-slider__handle');
-    this._model.addObserver(this.update.bind(this));
   }
 
   getLeftHandle() {
@@ -14,8 +12,8 @@ class HandleView {
     return this._$rightHandle;
   }
 
-  update() {
-    const { range } = this._model.getConfig();
+  update(config) {
+    const { range } = config;
 
     if (range) {
       this._displayRightHandle();
@@ -23,7 +21,7 @@ class HandleView {
       this._hideRightHandle();
     }
 
-    this._calculateHandlePosition();
+    this._calculateHandlePosition(config);
   }
 
   toString() {
@@ -38,15 +36,7 @@ class HandleView {
     this._$rightHandle.addClass('range-slider__handle_hidden');
   }
 
-  _calculateHandlePosition() {
-    const {
-      min,
-      max,
-      from,
-      to,
-      vertical,
-    } = this._model.getConfig();
-
+  _calculateHandlePosition({ min, max, from, to, vertical }) {
     const fromInPercent = min !== max
       ? (from - min) / (max - min) * 100
       : 0;

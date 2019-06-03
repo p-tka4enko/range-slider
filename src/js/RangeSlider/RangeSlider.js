@@ -39,11 +39,11 @@ class RangeSlider {
           const htmlConfig = $(this).data();
           const model = new Model(config, htmlConfig);
 
-          const sliderView = new SliderView(model, this);
-          const handleView = new HandleView(model, this);
-          const hintView = new HintView(model, handleView);
-          const trackerView = new TrackerView(model, this);
-          const gridView = new GridView(model, this);
+          const sliderView = new SliderView(this);
+          const handleView = new HandleView(this);
+          const hintView = new HintView(handleView);
+          const trackerView = new TrackerView(this);
+          const gridView = new GridView(this);
 
           new Controller(model, {
             sliderView,

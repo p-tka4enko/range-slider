@@ -1,16 +1,14 @@
 class GridView {
-  constructor(model, root) {
-    this._model = model;
+  constructor(root) {
     this._$grid = $('<div>').appendTo(root).addClass('range-slider__grid');
-    this._model.addObserver(this.update.bind(this));
   }
 
-  update() {
-    const { displayGrid } = this._model.getConfig();
+  update(config) {
+    const { displayGrid } = config;
 
     if (displayGrid) {
       this._displayGrid();
-      this._updateGrid();
+      this._updateGrid(config);
     } else {
       this._hideGrid();
     }
@@ -28,14 +26,7 @@ class GridView {
     this._$grid.addClass('range-slider__grid_hidden');
   }
 
-  _updateGrid() {
-    const {
-      min,
-      max,
-      gridStep,
-      vertical,
-    } = this._model.getConfig();
-
+  _updateGrid({ min, max, gridStep, vertical }) {
     this._$grid.empty();
 
     for (let i = min; i < max; i += gridStep) {

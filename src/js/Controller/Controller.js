@@ -3,11 +3,20 @@ class Controller {
     this._model = model;
     this._views = views;
     this._id = id;
+    this._addObservers();
     this._bindEvents();
   }
 
   toString() {
     return `{"class": "Controller", "id": "${this._id}"}`;
+  }
+
+  _addObservers() {
+    this._model.addObserver(this._views.sliderView.update.bind(this._views.sliderView));
+    this._model.addObserver(this._views.handleView.update.bind(this._views.handleView));
+    this._model.addObserver(this._views.hintView.update.bind(this._views.hintView));
+    this._model.addObserver(this._views.trackerView.update.bind(this._views.trackerView));
+    this._model.addObserver(this._views.gridView.update.bind(this._views.gridView));
   }
 
   _bindEvents() {
@@ -94,11 +103,13 @@ class Controller {
       gridView,
     } = this._views;
 
-    sliderView.update();
-    handleView.update();
-    hintView.update();
-    trackerView.update();
-    gridView.update();
+    const config = this._model.getConfig();
+
+    sliderView.update(config);
+    handleView.update(config);
+    hintView.update(config);
+    trackerView.update(config);
+    gridView.update(config);
   }
 }
 

@@ -150,8 +150,10 @@ class Model {
   }
 
   _notifyObservers() {
+    const config = this._config;
+
     this._observers.forEach((observer) => {
-      observer();
+      observer(config);
     });
   }
 

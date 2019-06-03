@@ -1,16 +1,14 @@
 class SliderView {
-  constructor(model, root) {
-    this._model = model;
+  constructor(root) {
     this._$root = $(root).addClass('range-slider');
-    this._model.addObserver(this.update.bind(this));
   }
 
   getRoot() {
     return this._$root;
   }
 
-  update() {
-    const { vertical } = this._model.getConfig();
+  update(config) {
+    const { vertical } = config;
 
     if (vertical) {
       this._setToVertical();

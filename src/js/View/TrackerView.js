@@ -1,17 +1,15 @@
 class TrackerView {
-  constructor(model, root) {
-    this._model = model;
+  constructor(root) {
     this._$tracker = $('<div>').appendTo(root).addClass('range-slider__tracker');
-    this._model.addObserver(this.update.bind(this));
   }
 
-  update() {
-    const { displayTracker } = this._model.getConfig();
+  update(config) {
+    const { displayTracker } = config;
 
     if (displayTracker) {
       this._displayTracker();
-      this._calculateTrackerSize();
-      this._calculateTrackerPosition();
+      this._calculateTrackerSize(config);
+      this._calculateTrackerPosition(config);
     } else {
       this._hideTracker();
     }
@@ -29,16 +27,7 @@ class TrackerView {
     this._$tracker.addClass('range-slider__tracker_hidden');
   }
 
-  _calculateTrackerSize() {
-    const {
-      min,
-      max,
-      from,
-      to,
-      range,
-      vertical,
-    } = this._model.getConfig();
-
+  _calculateTrackerSize({ min, max, from, to, range, vertical }) {
     const fromInPercent = min !== max
       ? (from - min) / (max - min) * 100
       : 0;
@@ -56,15 +45,7 @@ class TrackerView {
     }
   }
 
-  _calculateTrackerPosition() {
-    const {
-      min,
-      max,
-      from,
-      range,
-      vertical,
-    } = this._model.getConfig();
-
+  _calculateTrackerPosition({ min, max, from, range, vertical }) {
     const fromInPercent = (from - min) / (max - min) * 100;
     const trackerOffsetInPercent = range ? fromInPercent : 0;
 
