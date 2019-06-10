@@ -11,14 +11,14 @@ html(lang="ru")
   body
     include components/slider-block/slider-block
 
-    main.main-wrapper
-      h1.main-wrapper__title $(block).rangeSlider();
-      section.main-wrapper__slider-block-wrapper
-        h2.main-wrapper__slider-block-title Демо 1
+    main.wrapper
+      h1.wrapper__title $(block).rangeSlider();
+      section.wrapper__slider-block-wrapper
+        h2.wrapper__slider-block-title Демо 1
         +slider-block()
-      section.main-wrapper__slider-block-wrapper
-        h2.main-wrapper__slider-block-title Демо 2
+      section.wrapper__slider-block-wrapper
+        h2.wrapper__slider-block-title Демо 2
         +slider-block()
-      section.main-wrapper__slider-block-wrapper
-        h2.main-wrapper__slider-block-title Демо 3
+      section.wrapper__slider-block-wrapper
+        h2.wrapper__slider-block-title Демо 3
         +slider-block()
